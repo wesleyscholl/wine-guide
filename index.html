@@ -72,6 +72,75 @@
             box-shadow: var(--shadow-soft);
         }
         
+        /* Search Bar */
+        .search-container {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 0.9rem 1.25rem;
+            border: 2px solid var(--wine-blush);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--wine-rose);
+            box-shadow: 0 0 0 3px rgba(183, 86, 108, 0.1);
+        }
+        
+        .search-box button {
+            padding: 0.9rem 1.5rem;
+            background: var(--wine-burgundy);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            background: var(--wine-rose);
+            transform: scale(1.05);
+        }
+        
+        .search-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: var(--wine-cream);
+            border: 2px solid var(--wine-blush);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--wine-rose);
+            color: white;
+            border-color: var(--wine-rose);
+        }
+        
         /* Category Navigation Grid */
         .category-nav {
             display: grid;
@@ -375,6 +444,32 @@
             transform: scale(1.05);
         }
         
+        /* Quiz Styles */
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+        
+        .quiz-btn {
+            padding: 0.75rem 1rem;
+            background: var(--wine-cream);
+            border: 2px solid var(--wine-blush);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .quiz-btn:hover {
+            background: var(--wine-rose);
+            color: white;
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+        }
+        
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8rem;
@@ -416,6 +511,23 @@
             }
         }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
         .wine-card {
             animation: fadeInUp 0.5s ease forwards;
         }
@@ -428,6 +540,19 @@
         .wine-card:nth-child(6) { animation-delay: 0.6s; }
         .wine-card:nth-child(7) { animation-delay: 0.7s; }
         .wine-card:nth-child(8) { animation-delay: 0.8s; }
+        .wine-card:nth-child(9) { animation-delay: 0.9s; }
+        
+        .category-nav {
+            animation: slideInLeft 0.6s ease;
+        }
+        
+        .search-container {
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        .wine-card-header:hover .expand-icon {
+            animation: pulse 0.6s ease;
+        }
     </style>
 </head>
 <body>
@@ -439,6 +564,21 @@
     
     <div class="update-banner">
         <strong>✨ New for 2026</strong> — Updated picks and 8 categories to explore
+    </div>
+    
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="wineSearch" placeholder="Search wines, regions, or grape varieties..." aria-label="Search wines">
+            <button type="button" id="searchBtn">🔍</button>
+        </div>
+        <div class="search-filters">
+            <button class="filter-btn active" data-filter="all">All Wines</button>
+            <button class="filter-btn" data-filter="red">Reds</button>
+            <button class="filter-btn" data-filter="white">Whites</button>
+            <button class="filter-btn" data-filter="sparkling">Sparkling</button>
+            <button class="filter-btn" data-filter="under20">Under $20</button>
+        </div>
     </div>
     
     <!-- New Visual Category Navigation -->
@@ -535,9 +675,12 @@
             <div class="picks">
                 <h3>🏆 Top Picks for 2026</h3>
                 <ul>
-                    <li><strong>Guigal Côtes du Rhône</strong> (~$15) — Reliable house wine material. Find at Total Wine or Costco</li>
-                    <li><strong>Quinta do Crasto Douro Red</strong> (~$18) — Portuguese value gem. Try Wine.com or local shops</li>
-                    <li><strong>Umani Ronchi Montepulciano</strong> (~$17) — Italian comfort food pairing. Widely available</li>
+                    <li><strong><a href="wines/guigal-cotes-du-rhone.html" style="color: inherit; text-decoration: underline;">Guigal Côtes du Rhône</a></strong> (~$15) — Reliable house wine material. Find at Total Wine or Costco</li>
+                    <li><strong><a href="wines/quinta-do-crasto-douro.html" style="color: inherit; text-decoration: underline;">Quinta do Crasto Douro Red</a></strong> (~$18) — Portuguese value gem. Try Wine.com or local shops</li>
+                    <li><strong><a href="wines/chateau-greysac-medoc.html" style="color: inherit; text-decoration: underline;">Château Greysac Médoc</a></strong> (~$18) — Bordeaux elegance at accessible price. Total Wine</li>
+                    <li><strong>Garnacha from Campo de Borja</strong> (~$16) — Spanish gem with dark fruit. Total Wine</li>
+                    <li><strong>Chateau de Villerouge Minerve</strong> (~$14) — Languedoc value. Wine shops</li>
+                    <li><strong>Cono Sur Organic Cabernet</strong> (~$12) — Chilean everyday red. Grocery stores</li>
                 </ul>
             </div>
             
@@ -582,9 +725,12 @@
             <div class="picks">
                 <h3>🏆 Top Picks for 2026</h3>
                 <ul>
-                    <li><strong>Casal Garcia Vinho Verde</strong> (~$8) — Budget champion with slight spritz. Available everywhere</li>
-                    <li><strong>Burgans Albariño</strong> (~$13) — Clean, peachy, food-friendly. Find at Total Wine</li>
+                    <li><strong><a href="wines/casal-garcia-vinho-verde.html" style="color: inherit; text-decoration: underline;">Casal Garcia Vinho Verde</a></strong> (~$8) — Budget champion with slight spritz. Available everywhere</li>
+                    <li><strong><a href="wines/burgans-albarino.html" style="color: inherit; text-decoration: underline;">Burgans Albariño</a></strong> (~$13) — Clean, peachy, food-friendly. Find at Total Wine</li>
                     <li><strong>Picpoul de Pinet</strong> (~$14) — Zesty oyster wine. Trader Joe's has good options</li>
+                    <li><strong>Laurent Miquel Vermentino</strong> (~$16) — Corsican crispness. Wine shops</li>
+                    <li><strong>Graham Beck Sauvignon Blanc</strong> (~$12) — South African zing. Grocery stores</li>
+                    <li><strong>Chateau Bonnet Entre-Deux-Mers</strong> (~$15) — Bordeaux white value. Total Wine</li>
                 </ul>
             </div>
             
@@ -629,9 +775,12 @@
             <div class="picks">
                 <h3>🏆 Top Picks for 2026</h3>
                 <ul>
-                    <li><strong>Segura Viudas Brut Reserva Cava</strong> (~$12) — Insane value. Available everywhere</li>
+                    <li><strong><a href="wines/segura-viudas-cava.html" style="color: inherit; text-decoration: underline;">Segura Viudas Brut Reserva Cava</a></strong> (~$15) — Spain's finest sparkling tradition. Available everywhere</li>
                     <li><strong>Jaume Serra Cristalino Brut Cava</strong> (~$10) — Party wine champion. Find at Trader Joe's</li>
                     <li><strong>Bisol Prosecco Superiore</strong> (~$20) — When you want nicer Prosecco. Try specialty stores</li>
+                    <li><strong>Alfred Gratien Brut Champagne</strong> (~$35) — Affordable Champagne method. Wine shops</li>
+                    <li><strong>Paul Goerg Crémant d'Alsace</strong> (~$18) — French bubbles under $20. Total Wine</li>
+                    <li><strong>Ruinart Brut Rosé</strong> (~$40) — Pink Champagne luxury. Specialty stores</li>
                 </ul>
             </div>
             
@@ -679,6 +828,9 @@
                     <li><strong>Domaine de la Solitude Châteauneuf-du-Pape</strong> (~$35) — Elegant French sophistication. Find at Total Wine</li>
                     <li><strong>Muga Rioja Reserva</strong> (~$28) — Spanish classic, universally loved. Widely available</li>
                     <li><strong>Cristom Pinot Noir Willamette</strong> (~$38) — Oregon gem for Pinot lovers. Wine shops</li>
+                    <li><strong>Castello Banfi Brunello di Montalcino</strong> (~$40) — Italian elegance. Specialty stores</li>
+                    <li><strong>Quilceda Creek Cabernet Sauvignon</strong> (~$35) — Washington State star. Wine.com</li>
+                    <li><strong>Chateau Montelena Chardonnay</strong> (~$30) — Napa white for dinner parties. Total Wine</li>
                 </ul>
             </div>
             
@@ -726,6 +878,9 @@
                     <li><strong>Domaine de la Pépière Muscadet</strong> (~$16) — Oyster's best friend. Find at wine shops</li>
                     <li><strong>William Fèvre Petit Chablis</strong> (~$22) — Affordable Chablis entry point. Total Wine</li>
                     <li><strong>Schloss Gobelsburg Grüner Veltliner</strong> (~$18) — Austrian perfection. Specialty stores</li>
+                    <li><strong>Bodega Txakoli Rosé</strong> (~$20) — Basque coastal wine. Wine shops</li>
+                    <li><strong>Domaine Carneros Chardonnay</strong> (~$25) — California seafood pairing. Total Wine</li>
+                    <li><strong>Emile Beyer Riesling</strong> (~$19) — Alsatian dry Riesling. Specialty stores</li>
                 </ul>
             </div>
             
@@ -773,6 +928,9 @@
                     <li><strong>Penfolds Koonunga Hill Shiraz</strong> (~$15) — Australian value king. Available everywhere</li>
                     <li><strong>Catena Malbec</strong> (~$18) — Argentine classic, crowd-pleaser. Widely available</li>
                     <li><strong>Bodegas Borsao Tres Picos Garnacha</strong> (~$20) — Spanish powerhouse. Total Wine</li>
+                    <li><strong>Masi Amarone della Valpolicella</strong> (~$35) — Italian dried grape intensity. Wine shops</li>
+                    <li><strong>Alvaro Palacios Camins del Priorat</strong> (~$30) — Spanish mountain wine. Specialty stores</li>
+                    <li><strong>Liberty School Cabernet</strong> (~$25) — Paso Robles warmth. Total Wine</li>
                 </ul>
             </div>
             
@@ -820,6 +978,9 @@
                     <li><strong>Louis Jadot Bourgogne Pinot Noir</strong> (~$25) — Burgundy gateway. Wine shops</li>
                     <li><strong>Schramsberg Blanc de Blancs</strong> (~$35) — California sparkler, romantic. Total Wine</li>
                     <li><strong>Decoy by Duckhorn Cabernet</strong> (~$25) — Napa quality, accessible price. Widely available</li>
+                    <li><strong>Giuseppe Mascarello Barolo</strong> (~$40) — Piedmont elegance. Specialty stores</li>
+                    <li><strong>Dom Perignon Champagne</strong> (~$40) — Iconic bubbles. Wine shops</li>
+                    <li><strong>Opus One Cabernet</strong> (~$38) — Napa luxury blend. Total Wine</li>
                 </ul>
             </div>
             
@@ -867,6 +1028,9 @@
                     <li><strong>Georges Duboeuf Beaujolais</strong> (~$12) — Light, fruity red, easy to love. Everywhere</li>
                     <li><strong>Kim Crawford Sauvignon Blanc</strong> (~$14) — Crisp, refreshing white. Available everywhere</li>
                     <li><strong>Dr. Loosen Riesling</strong> (~$15) — Slightly sweet, food-friendly. Total Wine</li>
+                    <li><strong>Santa Margherita Pinot Grigio</strong> (~$16) — Italian classic. Grocery stores</li>
+                    <li><strong>Josh Cellars Cabernet</strong> (~$13) — California crowd-pleaser. Widely available</li>
+                    <li><strong><a href="wines/domaine-de-fontenille-rose.html" style="color: inherit; text-decoration: underline;">Domaine de Fontenille Rosé</a></strong> (~$16) — Provence perfection. Total Wine</li>
                 </ul>
             </div>
             
@@ -886,6 +1050,101 @@
                 <button type="submit">Join the Club</button>
             </form>
             <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 1rem;">No spam. Unsubscribe anytime. Just great wine tips.</p>
+        </div>
+        
+        <!-- Wine Pairing Quiz -->
+        <div class="wine-card">
+            <div class="wine-card-header" onclick="toggleCard(this)">
+                <span class="wine-card-icon">🎯</span>
+                <div class="wine-card-info">
+                    <h2>Wine Pairing Quiz</h2>
+                    <p class="tagline">Find your perfect wine match in seconds</p>
+                    <span class="price" style="background: var(--wine-gold);">FREE QUIZ</span>
+                </div>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="wine-card-content">
+                <p><strong>What are you eating?</strong></p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="showPairing('steak')">🥩 Steak or Red Meat</button>
+                    <button class="quiz-btn" onclick="showPairing('seafood')">🦐 Seafood</button>
+                    <button class="quiz-btn" onclick="showPairing('pasta')">🍝 Pasta or Pizza</button>
+                    <button class="quiz-btn" onclick="showPairing('chicken')">🍗 Chicken</button>
+                    <button class="quiz-btn" onclick="showPairing('cheese')">🧀 Cheese</button>
+                    <button class="quiz-btn" onclick="showPairing('salad')">🥗 Salad</button>
+                </div>
+                <div id="pairing-result" style="display: none; margin-top: 1rem; padding: 1rem; background: var(--wine-cream); border-radius: 8px;">
+                    <h4 style="color: var(--wine-burgundy); margin-bottom: 0.5rem;">Your Perfect Match:</h4>
+                    <p id="pairing-text"></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seasonal Recommendations -->
+        <div class="wine-card">
+            <div class="wine-card-header" onclick="toggleCard(this)">
+                <span class="wine-card-icon">🌸</span>
+                <div class="wine-card-info">
+                    <h2>Seasonal Wine Picks</h2>
+                    <p class="tagline">What to drink this season</p>
+                    <span class="price" style="background: var(--wine-success);">SEASONAL</span>
+                </div>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="wine-card-content">
+                <h3>🍂 Fall 2026 Picks</h3>
+                <ul>
+                    <li><strong>Cozy Reds:</strong> <a href="wines/quinta-do-crasto-douro.html" style="color: var(--wine-burgundy);">Quinta do Crasto Douro</a> for hearty stews</li>
+                    <li><strong>Harvest Whites:</strong> German Riesling for apple desserts</li>
+                    <li><strong>Thanksgiving Sparkler:</strong> Affordable Champagne for celebrations</li>
+                </ul>
+                
+                <h3>🎄 Holiday Gift Ideas</h3>
+                <ul>
+                    <li><strong>Host Gift:</strong> <a href="wines/guigal-cotes-du-rhone.html" style="color: var(--wine-burgundy);">Guigal Côtes du Rhône</a> - universally appreciated</li>
+                    <li><strong>Beginner Set:</strong> Mix of our top beginner wines</li>
+                    <li><strong>Luxury Option:</strong> Vintage Port for special occasions</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Wine Education -->
+        <div class="wine-card">
+            <div class="wine-card-header" onclick="toggleCard(this)">
+                <span class="wine-card-icon">📚</span>
+                <div class="wine-card-info">
+                    <h2>Wine 101: Learn the Basics</h2>
+                    <p class="tagline">Build your wine knowledge</p>
+                    <span class="price" style="background: var(--wine-gold);">EDUCATION</span>
+                </div>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="wine-card-content">
+                <h3>🍇 Grape Families</h3>
+                <ul>
+                    <li><strong>Bold Reds:</strong> Cabernet Sauvignon, Syrah, Malbec - Full-bodied with tannins</li>
+                    <li><strong>Light Reds:</strong> Pinot Noir, Gamay, Barbera - Elegant and food-friendly</li>
+                    <li><strong>Aromatic Whites:</strong> Sauvignon Blanc, Riesling, Gewürztraminer - Fragrant and crisp</li>
+                    <li><strong>Rich Whites:</strong> Chardonnay, Viognier - Buttery and full-flavored</li>
+                </ul>
+                
+                <h3>🌍 Major Wine Regions</h3>
+                <ul>
+                    <li><strong>France:</strong> Burgundy (Pinot Noir), Bordeaux (Cabernet blends)</li>
+                    <li><strong>Italy:</strong> Piedmont (Barolo), Tuscany (Chianti, Brunello)</li>
+                    <li><strong>Spain:</strong> Rioja (Tempranillo), Priorat (bold blends)</li>
+                    <li><strong>Portugal:</strong> Douro (Port), Vinho Verde (crisp whites)</li>
+                    <li><strong>New World:</strong> California (diverse styles), Australia (Shiraz)</li>
+                </ul>
+                
+                <h3>💰 Understanding Wine Prices</h3>
+                <ul>
+                    <li><strong>$10-15:</strong> Everyday drinking wines, great value</li>
+                    <li><strong>$15-25:</strong> Step up in quality, special occasions</li>
+                    <li><strong>$25-40:</strong> Premium wines, dinner party worthy</li>
+                    <li><strong>$40+:</strong> Luxury wines, collectible vintages</li>
+                </ul>
+            </div>
         </div>
         
         <!-- Quick Reference Guide -->
@@ -957,6 +1216,64 @@
             }
         }
         
+        // Search functionality
+        function searchWines(query) {
+            const cards = document.querySelectorAll('.wine-card');
+            const lowerQuery = query.toLowerCase();
+            
+            cards.forEach(card => {
+                const header = card.querySelector('.wine-card-info h2');
+                const tagline = card.querySelector('.wine-card-info .tagline');
+                const content = card.querySelector('.wine-card-content');
+                
+                const text = (header.textContent + tagline.textContent + content.textContent).toLowerCase();
+                const matches = text.includes(lowerQuery);
+                
+                card.style.display = matches || !query ? 'block' : 'none';
+                
+                // Add highlight animation for matches
+                if (matches && query) {
+                    card.style.animation = 'none';
+                    setTimeout(() => {
+                        card.style.animation = 'pulse 0.5s ease';
+                    }, 10);
+                }
+            });
+        }
+        
+        // Filter functionality
+        function filterWines(filter) {
+            const cards = document.querySelectorAll('.wine-card');
+            
+            cards.forEach(card => {
+                let show = true;
+                
+                switch(filter) {
+                    case 'red':
+                        show = card.id.includes('red') && !card.id.includes('white');
+                        break;
+                    case 'white':
+                        show = card.id.includes('white') || card.id.includes('seafood');
+                        break;
+                    case 'sparkling':
+                        show = card.id.includes('sparkling');
+                        break;
+                    case 'under20':
+                        const prices = card.querySelectorAll('.price');
+                        show = Array.from(prices).some(price => {
+                            const text = price.textContent;
+                            const maxPrice = parseInt(text.match(/\$(\d+)-(\d+)/)?.[2] || text.match(/\$(\d+)/)?.[1] || 0);
+                            return maxPrice <= 20;
+                        });
+                        break;
+                    default:
+                        show = true;
+                }
+                
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+        
         // Handle category nav clicks
         document.querySelectorAll('.category-nav-item').forEach(item => {
             item.addEventListener('click', function(e) {
@@ -978,6 +1295,51 @@
                 }
             });
         });
+        
+        // Search event listeners
+        document.getElementById('wineSearch').addEventListener('input', function(e) {
+            searchWines(e.target.value);
+        });
+        
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const query = document.getElementById('wineSearch').value;
+            searchWines(query);
+        });
+        
+        // Filter event listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Apply filter
+                filterWines(this.dataset.filter);
+            });
+        });
+        
+        // Wine pairing quiz
+        function showPairing(food) {
+            const resultDiv = document.getElementById('pairing-result');
+            const pairingText = document.getElementById('pairing-text');
+            
+            const pairings = {
+                'steak': 'A bold red like <a href="wines/quinta-do-crasto-douro.html" style="color: var(--wine-burgundy);">Quinta do Crasto Douro Red</a> or Cabernet Sauvignon. The tannins cut through the richness of the meat.',
+                'seafood': 'A crisp white like <a href="wines/casal-garcia-vinho-verde.html" style="color: var(--wine-burgundy);">Casal Garcia Vinho Verde</a> or Albariño. The acidity complements the delicate flavors.',
+                'pasta': 'Medium-bodied red like <a href="wines/guigal-cotes-du-rhone.html" style="color: var(--wine-burgundy);">Guigal Côtes du Rhône</a> for tomato sauces, or Chardonnay for cream sauces.',
+                'chicken': 'Light to medium white like Sauvignon Blanc or Pinot Grigio. Versatile and food-friendly.',
+                'cheese': 'Depends on the cheese - soft cheeses pair with Chardonnay, hard cheeses with Cabernet.',
+                'salad': 'Crisp white like <a href="wines/casal-garcia-vinho-verde.html" style="color: var(--wine-burgundy);">Casal Garcia Vinho Verde</a> or Pinot Grigio. Light and refreshing.'
+            };
+            
+            pairingText.innerHTML = pairings[food] || 'Try a versatile wine like Sauvignon Blanc!';
+            resultDiv.style.display = 'block';
+            
+            // Scroll to result
+            setTimeout(() => {
+                resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
         
         // Open first card by default for discoverability
         document.addEventListener('DOMContentLoaded', function() {

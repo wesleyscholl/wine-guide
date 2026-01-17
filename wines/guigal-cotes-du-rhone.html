@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guigal Côtes du Rhône - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+        
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .stars {
+            color: var(--wine-gold);
+        }
+        
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+    
+    <section class="wine-hero">
+        <h1>🍷 Guigal Côtes du Rhône</h1>
+        <p class="subtitle">Reliable French red for everyday enjoyment</p>
+        <span class="price">$15</span>
+    </section>
+    
+    <div class="container">
+        <div class="wine-details">
+            <h2>🍇 About This Wine</h2>
+            <p>Guigal Côtes du Rhône is the quintessential "house wine" - reliable, affordable, and consistently good. Made by one of the Rhône Valley's most respected producers, this blend of Grenache, Syrah, and Mourvèdre offers soft tannins, ripe red fruit flavors, and just enough complexity to elevate your weeknight dinner.</p>
+            
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.2/5 from wine enthusiasts</span>
+            </div>
+            
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Pasta dishes</strong> - Especially tomato-based sauces</li>
+                <li><strong>Grilled meats</strong> - Burgers, sausages, steak</li>
+                <li><strong>Cheese plates</strong> - Mild to medium cheeses</li>
+                <li><strong>Pizza</strong> - Any style, any topping</li>
+            </ul>
+            
+            <h2>🌍 Where It Comes From</h2>
+            <p>The Côtes du Rhône region in southern France produces over half of all French wine. Guigal's version comes from vineyards around the town of Ampuis, where the Rhône River bends. The warm Mediterranean climate gives the grapes the ripeness needed for approachable, fruit-forward wines.</p>
+            
+            <h2>📋 Tasting Notes</h2>
+            <ul>
+                <li><strong>Aroma:</strong> Red berries, spice, and a hint of herbs</li>
+                <li><strong>Flavor:</strong> Cherry, plum, and soft tannins</li>
+                <li><strong>Finish:</strong> Medium length with gentle warmth</li>
+                <li><strong>Alcohol:</strong> 13.5% - not too hot, not too light</li>
+            </ul>
+            
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Total Wine</strong> - Usually $14-16</li>
+                <li><strong>Costco</strong> - Often in bulk packs</li>
+                <li><strong>Local wine shops</strong> - Check for current vintage</li>
+                <li><strong>Online:</strong> Wine.com, Drizly</li>
+            </ul>
+            
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Drink within 3-4 years of vintage</li>
+                <li>Serve at cool room temperature (65°F)</li>
+                <li>Decant for 30 minutes if you want to soften the tannins</li>
+                <li>Great for parties - crowd-pleasing and affordable</li>
+            </ul>
+        </div>
+        
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="quinta-do-crasto-douro.html" class="related-wine">
+                    <div class="name">Quinta do Crasto Douro</div>
+                    <div class="price">$18</div>
+                    <div>Portuguese alternative with more structure</div>
+                </a>
+                <a href="segura-viudas-cava.html" class="related-wine">
+                    <div class="name">Segura Viudas Cava</div>
+                    <div class="price">$12</div>
+                    <div>Spanish bubbles for variety</div>
+                </a>
+                <a href="catena-malbec.html" class="related-wine">
+                    <div class="name">Catena Malbec</div>
+                    <div class="price">$18</div>
+                    <div>Argentine red with dark fruit</div>
+                </a>
+                <a href="georges-duboeuf-beaujolais.html" class="related-wine">
+                    <div class="name">Georges Duboeuf Beaujolais</div>
+                    <div class="price">$12</div>
+                    <div>Lighter red for beginners</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html></content>
+<parameter name="filePath">/Users/wscholl/wine-guide/wines/guigal-cotes-du-rhone.html
