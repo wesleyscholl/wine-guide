@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Pérignon Champagne - French Champagne Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>💕 Dom Pérignon Champagne</h1>
+        <p class="subtitle">The world's most famous Champagne for grand celebrations</p>
+        <span class="price">~$40</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Dom Pérignon (Moët & Chandon)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Champagne, France</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Chardonnay, Pinot Noir blend</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2015 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>12.5%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork with cage</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Luxurious Vintage Champagne</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Brut (Dry)</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Dom Pérignon is the world's most famous prestige Champagne, named after the legendary Benedictine monk who revolutionized Champagne production in the 17th century. Unlike most Champagnes, Dom Pérignon is produced only in exceptional vintage years, ensuring consistent excellence. Each bottle undergoes a minimum of 7 years of aging on the lees before release. This is the quintessential wine for life's most important romantic moments—engagements, anniversaries, and milestone celebrations.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span>4.9/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Caviar</strong> - The ultimate luxury pairing</li>
+                <li><strong>Oysters</strong> - Fresh Belon or Kumamoto oysters</li>
+                <li><strong>Lobster</strong> - Butter-poached lobster tail</li>
+                <li><strong>Grand celebrations</strong> - Engagements, anniversaries, promotions</li>
+                <li><strong>Fine cheeses</strong> - Aged Comté, triple cream brie</li>
+            </ul>
+
+            <h2>🌍 The Champagne Region</h2>
+            <p>Champagne is the northernmost wine region in France, where the cool climate and chalky soils create the perfect conditions for sparkling wine production. Dom Pérignon sources grapes exclusively from the region's Grand Cru and Premier Cru vineyards, selecting only the finest Chardonnay and Pinot Noir for their prestigious cuvée. The house's legacy spans over three centuries of uncompromising quality.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Brilliant pale gold with endless fine bubbles</li>
+                <li><strong>Aroma:</strong> Luxurious brioche, citrus zest, white flowers, mineral, toasted almond</li>
+                <li><strong>Palate:</strong> Complex and elegant with layers of citrus, stone fruit, and subtle yeast</li>
+                <li><strong>Finish:</strong> Extraordinarily long with fine persistent bubbles and mineral notes</li>
+                <li><strong>Mouthfeel:</strong> Creamy and silky with perfectly integrated acidity</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Now through 2040</li>
+                <li><strong>Serving temperature:</strong> Well chilled (46-50°F)</li>
+                <li><strong>Storage:</strong> Cool, dark cellar; can age gracefully for decades</li>
+                <li><strong>Peak freshness:</strong> 2025-2035</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Fine wine retailers</strong> - Premium Champagne selections</li>
+                <li><strong>Luxury stores</strong> - Duty-free shops, specialty retailers</li>
+                <li><strong>Online:</strong> Wine.com, direct from prestige importers</li>
+                <li><strong>Restaurants</strong> - Fine dining establishments worldwide</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Chill for 4+ hours before serving for optimal temperature</li>
+                <li>Use fine crystal champagne flutes or consider wider glasses for older vintages</li>
+                <li>Save the distinctive shield-shaped label as a keepsake</li>
+                <li>Perfect for the most romantic proposals and celebrations</li>
+                <li>Consider P2 or P3 releases for even more complexity (ages further)</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="schramsberg-blanc-de-blancs.html" class="related-wine">
+                    <div class="name">Schramsberg Blanc de Blancs</div>
+                    <div class="price">~$35</div>
+                    <div>America's premier sparkling</div>
+                </a>
+                <a href="opus-one-cabernet.html" class="related-wine">
+                    <div class="name">Opus One Cabernet</div>
+                    <div class="price">~$38</div>
+                    <div>Legendary Napa prestige</div>
+                </a>
+                <a href="giuseppe-mascarello-barolo.html" class="related-wine">
+                    <div class="name">Giuseppe Mascarello Barolo</div>
+                    <div class="price">~$40</div>
+                    <div>Italian nobility</div>
+                </a>
+                <a href="louis-jadot-bourgogne-pinot-noir.html" class="related-wine">
+                    <div class="name">Louis Jadot Bourgogne Pinot Noir</div>
+                    <div class="price">~$25</div>
+                    <div>Burgundy elegance</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfred Gratien Brut Champagne - Sparkling Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🍾 Alfred Gratien Brut Champagne</h1>
+        <p class="subtitle">Traditional Champagne house, barrel-fermented for depth</p>
+        <span class="price">~$35</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Alfred Gratien</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Champagne, France</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Chardonnay, Pinot Noir, Pinot Meunier blend</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>Non-vintage (Multi-year blend)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>12%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork with wire cage</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Complex, Traditional Champagne</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Brut (Dry)</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Alfred Gratien is one of Champagne's most traditional and artisanal houses, founded in 1864 in Épernay. What sets Alfred Gratien apart is their unwavering commitment to oak barrel fermentation—a practice abandoned by most Champagne houses decades ago. Every single wine in their cellar undergoes primary fermentation in small oak barrels, lending their Champagnes a distinctive depth, complexity, and aging potential rarely found at this price point. The Brut is a masterful blend of Chardonnay, Pinot Noir, and Pinot Meunier that showcases the house's signature vinous character.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐½</span>
+                <span>4.6/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Caviar</strong> - Classic luxury pairing, blinis with crème fraîche</li>
+                <li><strong>Oysters</strong> - Fresh oysters on the half shell, mignonette</li>
+                <li><strong>Lobster</strong> - Butter-poached, grilled, or thermidor</li>
+                <li><strong>Celebratory dishes</strong> - Elegant appetizers, fine dining courses</li>
+                <li><strong>Aged cheeses</strong> - Comté, Gruyère, aged Gouda</li>
+            </ul>
+
+            <h2>🌍 The Champagne Region</h2>
+            <p>The Champagne region in northeastern France is the birthplace and spiritual home of sparkling wine. Located just 90 miles east of Paris, the region's chalk soils, cool climate, and centuries of winemaking tradition create the world's most prestigious sparkling wines. Only wines made in this specific appellation using the traditional méthode champenoise can legally bear the Champagne name. Alfred Gratien's cellars in Épernay sit along the famous Avenue de Champagne, surrounded by the greatest houses in the world.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Golden straw with fine, persistent bubbles</li>
+                <li><strong>Aroma:</strong> Complex brioche, toasted hazelnuts, citrus, ripe apple</li>
+                <li><strong>Palate:</strong> Rich and textured with flavors of toast, lemon, apple, and subtle spice</li>
+                <li><strong>Finish:</strong> Long and elegant with fine, persistent bubbles</li>
+                <li><strong>Mouthfeel:</strong> Medium-bodied with creamy, integrated bubbles and vinous depth</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Now through 5-7 years with proper storage</li>
+                <li><strong>Serving temperature:</strong> Well chilled (45-48°F)</li>
+                <li><strong>Storage:</strong> Cool, dark cellar; can age gracefully</li>
+                <li><strong>Peak enjoyment:</strong> 2-5 years after disgorgement for complexity</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Specialty wine shops</strong> - French wine specialists often stock Gratien</li>
+                <li><strong>Total Wine & More</strong> - Premium Champagne selection</li>
+                <li><strong>Online:</strong> Wine.com, K&L Wine Merchants, Wine Access</li>
+                <li><strong>Fine dining restaurants</strong> - Often featured on Champagne lists</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Oak barrel fermentation gives this Champagne unusual depth and complexity</li>
+                <li>One of the last houses to ferment entirely in oak barrels</li>
+                <li>Excellent value compared to bigger-name Champagnes of similar quality</li>
+                <li>Benefits from 10-15 minutes out of the fridge before serving</li>
+                <li>Use a tulip-shaped glass to appreciate the complex aromatics</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="ruinart-brut-rose.html" class="related-wine">
+                    <div class="name">Ruinart Brut Rosé</div>
+                    <div class="price">~$40</div>
+                    <div>Luxury rosé Champagne</div>
+                </a>
+                <a href="paul-goerg-cremant-alsace.html" class="related-wine">
+                    <div class="name">Paul Goerg Crémant d'Alsace</div>
+                    <div class="price">~$18</div>
+                    <div>French bubbles at better value</div>
+                </a>
+                <a href="bisol-prosecco-superiore.html" class="related-wine">
+                    <div class="name">Bisol Prosecco Superiore</div>
+                    <div class="price">~$20</div>
+                    <div>Italian sparkling alternative</div>
+                </a>
+                <a href="segura-viudas-cava.html" class="related-wine">
+                    <div class="name">Segura Viudas Cava Brut Reserva</div>
+                    <div class="price">$15</div>
+                    <div>Spanish value alternative</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

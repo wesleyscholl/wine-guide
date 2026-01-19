@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Fèvre Petit Chablis - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🐟 William Fèvre Petit Chablis</h1>
+        <p class="subtitle">Premier Chablis producer's unoaked Chardonnay elegance</p>
+        <span class="price">~$22</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>William Fèvre</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Chablis, Burgundy, France</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Chardonnay (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2023 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>12.5%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Mineral, Unoaked Chardonnay</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>William Fèvre is one of the most respected names in Chablis, with holdings in seven Grand Cru vineyards and fifteen Premier Cru sites. Their Petit Chablis represents exceptional value, showcasing the pure, mineral-driven character that defines this unique corner of Burgundy. Vinified entirely in stainless steel, this wine expresses the famous Kimmeridgian limestone terroir—ancient seabeds rich with fossilized oyster shells—through its flinty, crystalline character.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.4/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Shellfish</strong> - Oysters, clams, mussels, scallops</li>
+                <li><strong>Grilled fish</strong> - Sea bass, branzino, sole, turbot</li>
+                <li><strong>Sushi</strong> - Traditional nigiri and sashimi</li>
+                <li><strong>Light chicken dishes</strong> - Poached, grilled, or in cream sauce</li>
+                <li><strong>Fresh cheeses</strong> - Époisses, Chaource, fresh chèvre</li>
+            </ul>
+
+            <h2>🌍 The Chablis Region</h2>
+            <p>Chablis is Burgundy's northernmost wine region, isolated from the rest of the Côte d'Or and blessed with unique Kimmeridgian limestone soils. These ancient seabeds, formed 150 million years ago, are rich with fossilized oyster shells that impart the distinctive mineral character to Chablis wines. The cool climate and chalky soils produce Chardonnay of unparalleled purity and precision, completely different from the oaked styles of the Côte de Beaune.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Pale gold with brilliant clarity</li>
+                <li><strong>Aroma:</strong> Green apple, lemon zest, wet chalk, white flowers, flinty notes</li>
+                <li><strong>Palate:</strong> Mineral-driven with bright acidity, green apple, citrus, and a steely backbone</li>
+                <li><strong>Finish:</strong> Clean, refreshing with lingering mineral and citrus notes</li>
+                <li><strong>Mouthfeel:</strong> Light to medium-bodied with vibrant acidity and elegant texture</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Within 2-3 years of vintage for peak freshness</li>
+                <li><strong>Serving temperature:</strong> Cold (45-50°F)</li>
+                <li><strong>Storage:</strong> Refrigerator after opening, consume within 2-3 days</li>
+                <li><strong>Peak freshness:</strong> Current vintage or one year back</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Fine wine retailers</strong> - Stores with strong Burgundy selections</li>
+                <li><strong>Wine.com</strong> - Reliable availability</li>
+                <li><strong>Total Wine</strong> - Often in stock</li>
+                <li><strong>K&L Wine Merchants</strong> - Excellent Burgundy specialists</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>This is what unoaked Chardonnay should taste like—pure and mineral</li>
+                <li>Perfect introduction to the world of Chablis before splurging on Premier/Grand Cru</li>
+                <li>Serve with raw oysters to taste why this pairing is legendary</li>
+                <li>William Fèvre's quality is consistent across their entire range</li>
+                <li>The chalky, flinty character comes from the ancient oyster shell fossils in the soil</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="domaine-de-la-pepiere-muscadet.html" class="related-wine">
+                    <div class="name">Domaine de la Pépière Muscadet</div>
+                    <div class="price">~$16</div>
+                    <div>Loire Valley mineral white</div>
+                </a>
+                <a href="schloss-gobelsburg-gruner-veltliner.html" class="related-wine">
+                    <div class="name">Schloss Gobelsburg Grüner Veltliner</div>
+                    <div class="price">~$18</div>
+                    <div>Austrian crisp white</div>
+                </a>
+                <a href="domaine-carneros-chardonnay.html" class="related-wine">
+                    <div class="name">Domaine Carneros Chardonnay</div>
+                    <div class="price">~$25</div>
+                    <div>California elegant Chardonnay</div>
+                </a>
+                <a href="emile-beyer-riesling.html" class="related-wine">
+                    <div class="name">Emile Beyer Riesling</div>
+                    <div class="price">~$19</div>
+                    <div>Dry Alsatian Riesling</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodegas Borsao Tres Picos Garnacha - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🔥 Bodegas Borsao Tres Picos Garnacha</h1>
+        <p class="subtitle">Old vine power from Spanish high altitude vineyards</p>
+        <span class="price">~$20</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Bodegas Borsao</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Campo de Borja, Spain</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Garnacha (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2022 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>15%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Full-bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Category</h4>
+                    <p>Winter Warmth</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Tres Picos is a legend in the world of value wines—a 90+ point wine that consistently delivers exceptional quality at an accessible price. Made from 100% old vine Garnacha (some vines over 50 years old) grown at high altitude in northeastern Spain, this wine showcases the power and concentration that Garnacha can achieve. Campo de Borja is known as the "Empire of Garnacha," and Tres Picos is its crown jewel.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐½</span>
+                <span>4.5/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Lamb stew</strong> - Rich meat loves bold Garnacha</li>
+                <li><strong>Grilled vegetables</strong> - Eggplant, peppers, zucchini</li>
+                <li><strong>Chorizo</strong> - Spanish sausage and Spanish wine</li>
+                <li><strong>Manchego cheese</strong> - Classic Spanish pairing</li>
+                <li><strong>Roasted pork</strong> - The spice complements the fruit</li>
+            </ul>
+
+            <h2>🌍 Campo de Borja, Spain</h2>
+            <p>Campo de Borja, located in the Aragón region of northeastern Spain, has been called the "Empire of Garnacha" for good reason. The region's ancient vines, some planted over a century ago, grow on rocky, mineral-rich soils at elevations up to 2,600 feet. The continental climate with hot days and cool nights produces wines of remarkable concentration and freshness. Bodegas Borsao is a cooperative of over 2,400 growers who have pooled their resources to create world-class wines.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Deep ruby with garnet edge</li>
+                <li><strong>Aroma:</strong> Ripe cherry, fresh raspberry, warm spice, mineral notes, hint of garrigue</li>
+                <li><strong>Palate:</strong> Powerful and bold with concentrated red and black fruit, spice, mineral undertones. Despite 15% alcohol, remarkably balanced</li>
+                <li><strong>Finish:</strong> Long and warming with persistent fruit and spice</li>
+                <li><strong>Acidity:</strong> Bright, providing freshness to the rich fruit</li>
+            </ul>
+
+            <h2>🕐 Aging Potential & Drinking Window</h2>
+            <ul>
+                <li><strong>Peak drinking:</strong> Now through 2030</li>
+                <li><strong>Best served:</strong> Slightly cool (62-65°F)</li>
+                <li><strong>Decanting:</strong> 30-45 minutes recommended</li>
+                <li><strong>Storage:</strong> Cool, dark place; lay bottles horizontally</li>
+            </ul>
+
+            <h2>🛒 Where to Buy & Current Pricing</h2>
+            <ul>
+                <li><strong>Wine.com</strong> - Usually $18-22</li>
+                <li><strong>Total Wine</strong> - $17-21</li>
+                <li><strong>Local wine shops</strong> - Widely available</li>
+                <li><strong>Costco</strong> - Sometimes available at discount</li>
+                <li><strong>Online:</strong> Drizly, Vivino for local delivery</li>
+            </ul>
+
+            <h2>💡 Pro Tips & Serving Suggestions</h2>
+            <ul>
+                <li>One of the best values in Spanish wine—90+ points for ~$20</li>
+                <li>Decant to soften the bold tannins and open the aromatics</li>
+                <li>The high alcohol is well-integrated but noticeable</li>
+                <li>Perfect for hearty winter meals</li>
+                <li>Look for the distinctive three peaks (tres picos) label</li>
+            </ul>
+
+            <h2>🏆 Awards & Recognition</h2>
+            <ul>
+                <li>Consistent 90-93 points from Wine Advocate</li>
+                <li>James Suckling 91+ points regularly</li>
+                <li>Featured in "best value wine" lists worldwide</li>
+                <li>Multiple gold medals at international competitions</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="alvaro-palacios-camins-del-priorat.html" class="related-wine">
+                    <div class="name">Álvaro Palacios Camins del Priorat</div>
+                    <div class="price">~$30</div>
+                    <div>Another Spanish Garnacha masterpiece</div>
+                </a>
+                <a href="catena-malbec.html" class="related-wine">
+                    <div class="name">Catena Malbec</div>
+                    <div class="price">~$18</div>
+                    <div>Similar bold character from Argentina</div>
+                </a>
+                <a href="masi-amarone-della-valpolicella.html" class="related-wine">
+                    <div class="name">Masi Amarone</div>
+                    <div class="price">~$35</div>
+                    <div>Italian richness and depth</div>
+                </a>
+                <a href="penfolds-koonunga-hill-shiraz.html" class="related-wine">
+                    <div class="name">Penfolds Koonunga Hill Shiraz</div>
+                    <div class="price">~$15</div>
+                    <div>Australian warmth and value</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

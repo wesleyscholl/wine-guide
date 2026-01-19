@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schloss Gobelsburg Grüner Veltliner - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🐟 Schloss Gobelsburg Grüner Veltliner</h1>
+        <p class="subtitle">Austria's signature grape from a historic castle winery</p>
+        <span class="price">~$18</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Schloss Gobelsburg</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Kamptal, Austria</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Grüner Veltliner (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2023 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>12.5%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Screwcap</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Crisp, Peppery White</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Schloss Gobelsburg is one of Austria's oldest and most prestigious wine estates, with a history dating back to 1171 when Cistercian monks first planted vines here. The castle winery, now led by Michael Moosbrugger, produces benchmark examples of Austria's signature white grape, Grüner Veltliner. This wine showcases the grape's distinctive white pepper spice, bright acidity, and mineral depth—characteristics that have made it a sommelier favorite worldwide for its incredible food versatility.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.4/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Wiener Schnitzel</strong> - The classic Austrian pairing</li>
+                <li><strong>Asparagus</strong> - White or green, grilled or steamed</li>
+                <li><strong>Asian cuisine</strong> - Thai, Vietnamese, Japanese, Korean</li>
+                <li><strong>Lighter fish</strong> - Trout, sole, flounder</li>
+                <li><strong>Vegetable dishes</strong> - Salads, vegetarian preparations, fresh herbs</li>
+            </ul>
+
+            <h2>🌍 The Kamptal Region</h2>
+            <p>Kamptal is one of Austria's most prestigious wine regions, named after the Kamp River that flows through it. Located northwest of Vienna, the region benefits from warm Pannonian influences from the east and cool air from the Waldviertel highlands to the north. This creates significant day-night temperature variation, preserving acidity while allowing full ripeness. The diverse soils—including loess, granite, and volcanic rock—contribute to wines of remarkable complexity and mineral expression.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Pale straw with green-gold highlights</li>
+                <li><strong>Aroma:</strong> White pepper, citrus zest, green herbs, snap pea, white flowers</li>
+                <li><strong>Palate:</strong> Crisp and refreshing with citrus, green apple, and signature white pepper spice</li>
+                <li><strong>Finish:</strong> Clean, mineral-driven with lingering peppery notes</li>
+                <li><strong>Mouthfeel:</strong> Light to medium-bodied with bright, mouthwatering acidity</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Within 2-4 years of vintage</li>
+                <li><strong>Serving temperature:</strong> Cold (45-50°F)</li>
+                <li><strong>Storage:</strong> Refrigerator after opening, consume within 3-4 days</li>
+                <li><strong>Peak freshness:</strong> Current vintage or one year back</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Specialty wine shops</strong> - Stores with Austrian selections</li>
+                <li><strong>Wine.com</strong> - Usually available</li>
+                <li><strong>Total Wine</strong> - Growing Austrian section</li>
+                <li><strong>Astor Wines</strong> - Excellent Austrian selection</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>The white pepper note is the hallmark of quality Grüner Veltliner</li>
+                <li>One of the most food-friendly wines in the world—pairs with difficult ingredients like asparagus and artichokes</li>
+                <li>Great alternative to Sauvignon Blanc or Pinot Grigio</li>
+                <li>Screwcap closure ensures consistent freshness</li>
+                <li>Try their Ried (single vineyard) bottlings for more complexity</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="william-fevre-petit-chablis.html" class="related-wine">
+                    <div class="name">William Fèvre Petit Chablis</div>
+                    <div class="price">~$22</div>
+                    <div>Mineral Burgundy Chardonnay</div>
+                </a>
+                <a href="emile-beyer-riesling.html" class="related-wine">
+                    <div class="name">Emile Beyer Riesling</div>
+                    <div class="price">~$19</div>
+                    <div>Dry Alsatian Riesling</div>
+                </a>
+                <a href="domaine-de-la-pepiere-muscadet.html" class="related-wine">
+                    <div class="name">Domaine de la Pépière Muscadet</div>
+                    <div class="price">~$16</div>
+                    <div>Loire Valley mineral white</div>
+                </a>
+                <a href="burgans-albarino.html" class="related-wine">
+                    <div class="name">Burgans Albariño</div>
+                    <div class="price">$13</div>
+                    <div>Spanish coastal white</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opus One Cabernet - Napa Valley Red Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>💕 Opus One Cabernet</h1>
+        <p class="subtitle">Legendary Napa joint venture for grand occasions</p>
+        <span class="price">~$38</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Opus One (Mondavi & Rothschild)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Napa Valley, California, USA</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot, Malbec</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2021 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>14.5%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Refined, Full-Bodied Bordeaux-Style Blend</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Opus One represents one of the most significant joint ventures in wine history—a partnership between Robert Mondavi and Baron Philippe de Rothschild that began in 1979. This legendary Bordeaux-style blend combines the best of Napa Valley fruit with Old World winemaking philosophy. The iconic silhouette of the founders graces every bottle, symbolizing the union of two great wine families. Opus One is the wine for truly momentous romantic occasions—when only the extraordinary will do.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span>4.9/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Prime rib</strong> - Perfectly marbled, slow-roasted</li>
+                <li><strong>Lamb</strong> - Rack of lamb with herb crust</li>
+                <li><strong>Filet mignon</strong> - The classic luxury pairing</li>
+                <li><strong>Grand occasions</strong> - Major anniversaries, milestone celebrations</li>
+                <li><strong>Rich cheeses</strong> - Aged Gruyère, truffle-infused cheeses</li>
+            </ul>
+
+            <h2>🌍 The Napa Valley Region</h2>
+            <p>Napa Valley is America's most celebrated wine region, known for producing world-class Cabernet Sauvignon. Opus One's vineyards are located in the heart of the Oakville appellation, where the combination of volcanic and alluvial soils, moderate temperatures, and ample sunshine create ideal conditions for Bordeaux varieties. The estate spans 170 acres of prime vineyard land, meticulously farmed to produce wines of extraordinary elegance and longevity.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Deep garnet with purple edges</li>
+                <li><strong>Aroma:</strong> Cassis, black cherry, violet, cedar, hints of tobacco and chocolate</li>
+                <li><strong>Palate:</strong> Refined and layered with dark fruit, subtle oak, and mineral complexity</li>
+                <li><strong>Finish:</strong> Extraordinarily long with velvet tannins and lingering elegance</li>
+                <li><strong>Mouthfeel:</strong> Silky and polished with seamless integration</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> 2026 through 2050</li>
+                <li><strong>Serving temperature:</strong> Room temperature (64-68°F)</li>
+                <li><strong>Storage:</strong> Temperature-controlled cellar; decant 1-2 hours before serving</li>
+                <li><strong>Peak freshness:</strong> 2030-2045</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Fine wine retailers</strong> - Premium California wine selections</li>
+                <li><strong>Opus One Winery</strong> - Direct from the estate in Oakville</li>
+                <li><strong>Online:</strong> Wine.com, K&L Wine Merchants, premium auction sites</li>
+                <li><strong>Luxury restaurants</strong> - Fine dining wine lists worldwide</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Decant for 1-2 hours to allow full expression of aromatics</li>
+                <li>The iconic architecture of the winery is worth visiting</li>
+                <li>Consider their second wine, Overture, for a more accessible option</li>
+                <li>Save the label or cork as a memento of special occasions</li>
+                <li>Best appreciated with equally exceptional food and company</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="dom-perignon-champagne.html" class="related-wine">
+                    <div class="name">Dom Pérignon Champagne</div>
+                    <div class="price">~$40</div>
+                    <div>Ultimate celebration bubbles</div>
+                </a>
+                <a href="giuseppe-mascarello-barolo.html" class="related-wine">
+                    <div class="name">Giuseppe Mascarello Barolo</div>
+                    <div class="price">~$40</div>
+                    <div>Italian nobility</div>
+                </a>
+                <a href="decoy-by-duckhorn-cabernet.html" class="related-wine">
+                    <div class="name">Decoy by Duckhorn Cabernet</div>
+                    <div class="price">~$25</div>
+                    <div>Accessible California quality</div>
+                </a>
+                <a href="chateau-greysac-medoc.html" class="related-wine">
+                    <div class="name">Château Greysac Médoc</div>
+                    <div class="price">$18</div>
+                    <div>Bordeaux structure</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

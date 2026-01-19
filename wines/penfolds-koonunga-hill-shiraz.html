@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penfolds Koonunga Hill Shiraz - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🔥 Penfolds Koonunga Hill Shiraz</h1>
+        <p class="subtitle">Australia's iconic winery delivers exceptional value</p>
+        <span class="price">~$15</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Penfolds</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>South Australia</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Shiraz (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2022 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>14%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Screw cap</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Full-bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Category</h4>
+                    <p>Winter Warmth</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Penfolds is Australia's most famous and celebrated winery, and their Koonunga Hill Shiraz represents exceptional value from one of the world's great wine producers. First released in 1976, this wine was named after the hills overlooking the original Penfolds Magill Estate. It delivers classic Australian Shiraz character—bold fruit, smooth tannins, and that signature warmth that makes it perfect for cooler months.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.2/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>BBQ ribs</strong> - The smoky sweetness complements the fruit</li>
+                <li><strong>Grilled steak</strong> - Classic pairing with bold Shiraz</li>
+                <li><strong>Lamb chops</strong> - Herbs and meat love this wine</li>
+                <li><strong>Smoky dishes</strong> - Bacon, smoked meats, charred vegetables</li>
+                <li><strong>Aged cheddar</strong> - Sharp cheese with fruit-forward wine</li>
+            </ul>
+
+            <h2>🌍 South Australia</h2>
+            <p>South Australia is the heartland of Australian wine production, producing more than half of the country's total output. The region's diverse climate zones—from cool Adelaide Hills to warm Barossa Valley—allow Penfolds to source grapes that create complexity and balance. The Koonunga Hill range draws from multiple premium regions to achieve consistency and quality year after year.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Deep crimson with purple hues</li>
+                <li><strong>Aroma:</strong> Ripe plum, blackberry, vanilla, black pepper, hints of oak</li>
+                <li><strong>Palate:</strong> Full-bodied with generous dark fruit, smooth vanilla oak integration, pepper spice, and plush, approachable tannins</li>
+                <li><strong>Finish:</strong> Medium-long with lingering berry and spice notes</li>
+                <li><strong>Acidity:</strong> Well-balanced, supporting the fruit</li>
+            </ul>
+
+            <h2>🕐 Aging Potential & Drinking Window</h2>
+            <ul>
+                <li><strong>Peak drinking:</strong> Now through 2028</li>
+                <li><strong>Best served:</strong> Slightly cool (60-65°F)</li>
+                <li><strong>Decanting:</strong> 20-30 minutes optional</li>
+                <li><strong>Storage:</strong> Cool, dark place; screw cap ensures freshness</li>
+            </ul>
+
+            <h2>🛒 Where to Buy & Current Pricing</h2>
+            <ul>
+                <li><strong>Total Wine</strong> - Usually $12-16</li>
+                <li><strong>Wine.com</strong> - $14-17</li>
+                <li><strong>Local grocery stores</strong> - Widely available</li>
+                <li><strong>Costco</strong> - Often discounted</li>
+                <li><strong>Online:</strong> Drizly, Vivino for local delivery</li>
+            </ul>
+
+            <h2>💡 Pro Tips & Serving Suggestions</h2>
+            <ul>
+                <li>Perfect entry point to explore Penfolds' legendary quality</li>
+                <li>Great value for parties—crowd-pleasing and affordable</li>
+                <li>Serve slightly below room temperature for best expression</li>
+                <li>The screw cap keeps it fresh—no decanting necessary</li>
+                <li>Compare to Penfolds Bin series to understand their house style</li>
+            </ul>
+
+            <h2>🏆 Awards & Recognition</h2>
+            <ul>
+                <li>Consistent 88-90 points from major publications</li>
+                <li>Multiple gold medals at Australian wine shows</li>
+                <li>Regularly featured as "best value" Australian Shiraz</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="catena-malbec.html" class="related-wine">
+                    <div class="name">Catena Malbec</div>
+                    <div class="price">~$18</div>
+                    <div>Argentine richness with dark fruit</div>
+                </a>
+                <a href="bodegas-borsao-tres-picos-garnacha.html" class="related-wine">
+                    <div class="name">Bodegas Borsao Tres Picos</div>
+                    <div class="price">~$20</div>
+                    <div>Bold Spanish Garnacha</div>
+                </a>
+                <a href="liberty-school-cabernet.html" class="related-wine">
+                    <div class="name">Liberty School Cabernet</div>
+                    <div class="price">~$25</div>
+                    <div>California full-bodied value</div>
+                </a>
+                <a href="quinta-do-crasto-douro.html" class="related-wine">
+                    <div class="name">Quinta do Crasto Douro</div>
+                    <div class="price">$18</div>
+                    <div>Portuguese warmth and spice</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graham Beck Sauvignon Blanc - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🍷 Graham Beck Sauvignon Blanc</h1>
+        <p class="subtitle">South Africa's exceptional everyday white wine value</p>
+        <span class="price">~$12</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Graham Beck</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Robertson, South Africa</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Sauvignon Blanc (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2024 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>13%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Screwcap</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Crisp, Zesty White</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Graham Beck is one of South Africa's most respected wine producers, known for both their world-class sparkling wines (served at Nelson Mandela's inauguration and Barack Obama's first inauguration) and their excellent still wines. Their Sauvignon Blanc from the Robertson region represents outstanding value, delivering classic Sauvignon Blanc character with a distinctly South African twist. The winery's commitment to quality and sustainability has made them a benchmark for the region.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.1/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Salads</strong> - Garden salads, Caesar, spinach with citrus vinaigrette</li>
+                <li><strong>Goat cheese</strong> - Fresh chèvre, goat cheese crostini, salads with goat cheese</li>
+                <li><strong>Asparagus</strong> - Grilled, roasted, or in quiche</li>
+                <li><strong>Light seafood</strong> - Shrimp cocktail, crab cakes, fish tacos</li>
+                <li><strong>Sushi</strong> - Especially lighter rolls with vegetables or white fish</li>
+            </ul>
+
+            <h2>🌍 The Robertson Region</h2>
+            <p>Robertson is a warm, dry wine region in South Africa's Western Cape, known for its limestone-rich soils along the Breede River Valley. Despite the warm climate, cool breezes from the Indian Ocean moderate temperatures, allowing white grapes like Sauvignon Blanc to retain their natural acidity and freshness. The region is also famous for its horse studs and the Robertson Wine Valley's scenic beauty.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Pale straw with brilliant clarity</li>
+                <li><strong>Aroma:</strong> Tropical fruit, gooseberry, passion fruit, grassy notes, hints of green bell pepper</li>
+                <li><strong>Palate:</strong> Zesty and vibrant with tropical fruit, citrus, and herbaceous character</li>
+                <li><strong>Finish:</strong> Crisp, clean, and refreshing with lingering citrus notes</li>
+                <li><strong>Mouthfeel:</strong> Light to medium-bodied with bright, lively acidity</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Within 1-2 years of vintage</li>
+                <li><strong>Serving temperature:</strong> Very cold (45-50°F)</li>
+                <li><strong>Storage:</strong> Refrigerator after opening, consume within 3 days</li>
+                <li><strong>Peak freshness:</strong> Current vintage for best vibrancy</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Total Wine</strong> - Usually well-stocked</li>
+                <li><strong>Wine shops</strong> - Look in the South African section</li>
+                <li><strong>Kroger/Ralphs</strong> - Often available in grocery stores</li>
+                <li><strong>Online:</strong> Wine.com, Vivino, Drizly</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Exceptional value - rivals wines twice its price</li>
+                <li>The screwcap ensures consistent freshness</li>
+                <li>Great entry point into South African wines</li>
+                <li>If you like New Zealand Sauv Blanc, try this for a different perspective</li>
+                <li>Check out Graham Beck's sparkling wines too - they're world-class</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="kim-crawford-sauvignon-blanc.html" class="related-wine">
+                    <div class="name">Kim Crawford Sauvignon Blanc</div>
+                    <div class="price">$14</div>
+                    <div>New Zealand Sauv Blanc benchmark</div>
+                </a>
+                <a href="picpoul-de-pinet.html" class="related-wine">
+                    <div class="name">Picpoul de Pinet</div>
+                    <div class="price">$14</div>
+                    <div>French crisp white alternative</div>
+                </a>
+                <a href="burgans-albarino.html" class="related-wine">
+                    <div class="name">Burgans Albariño</div>
+                    <div class="price">$13</div>
+                    <div>Spanish coastal white</div>
+                </a>
+                <a href="chateau-bonnet-entre-deux-mers.html" class="related-wine">
+                    <div class="name">Château Bonnet Entre-Deux-Mers</div>
+                    <div class="price">$15</div>
+                    <div>Bordeaux Sauvignon Blanc blend</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cono Sur Organic Cabernet Sauvignon - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+        
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .spec-item {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            background: var(--wine-cream);
+        }
+        
+        .spec-item .label {
+            font-size: 0.85rem;
+            color: var(--wine-rose);
+            margin-bottom: 0.25rem;
+        }
+        
+        .spec-item .value {
+            font-weight: 600;
+            color: var(--wine-burgundy);
+        }
+        
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .stars {
+            color: var(--wine-gold);
+        }
+        
+        .organic-badge {
+            display: inline-block;
+            background: var(--wine-success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+    
+    <section class="wine-hero">
+        <h1>🍷 Cono Sur Organic Cabernet Sauvignon</h1>
+        <p class="subtitle">Sustainable Chilean wine with excellent everyday value</p>
+        <span class="price">~$12</span>
+    </section>
+    
+    <div class="container">
+        <div class="wine-specs">
+            <div class="spec-item">
+                <div class="label">Winery</div>
+                <div class="value">Cono Sur</div>
+            </div>
+            <div class="spec-item">
+                <div class="label">Region</div>
+                <div class="value">Colchagua Valley, Chile</div>
+            </div>
+            <div class="spec-item">
+                <div class="label">Grape</div>
+                <div class="value">Cabernet Sauvignon (100%)</div>
+            </div>
+            <div class="spec-item">
+                <div class="label">Alcohol</div>
+                <div class="value">13.5%</div>
+            </div>
+        </div>
+        
+        <div class="wine-details">
+            <h2>🍇 About This Wine <span class="organic-badge">🌱 Organic</span></h2>
+            <p>Cono Sur is a pioneer in sustainable winemaking in Chile, and their organic Cabernet Sauvignon proves that eco-friendly wines can also be incredibly affordable. The winery is certified organic and carbon-neutral, using bicycles to reduce their carbon footprint in the vineyards - you'll see a bicycle on every label. This Cabernet delivers classic varietal character with ripe fruit, balanced structure, and remarkable value.</p>
+            
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.0/5 from wine enthusiasts</span>
+            </div>
+            
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Burgers</strong> - Classic beef burgers, gourmet or backyard style</li>
+                <li><strong>Grilled steak</strong> - Ribeye, strip steak, skirt steak</li>
+                <li><strong>Tacos</strong> - Carne asada, carnitas, or beef tacos</li>
+                <li><strong>BBQ</strong> - Ribs, brisket, pulled pork</li>
+            </ul>
+            
+            <h2>🌍 Where It Comes From</h2>
+            <p>The Colchagua Valley is one of Chile's premier wine regions, located about 100 miles south of Santiago. Protected by the Andes Mountains to the east and cooled by Pacific breezes from the west, this valley enjoys a Mediterranean climate perfect for Cabernet Sauvignon. The organic vineyards benefit from Chile's naturally isolated geography - the country's deserts, mountains, and ocean create natural barriers against pests and diseases.</p>
+            
+            <h2>📋 Tasting Notes</h2>
+            <ul>
+                <li><strong>Body:</strong> Medium-bodied with smooth texture</li>
+                <li><strong>Aroma:</strong> Black currant, ripe cherry, eucalyptus, hint of mint</li>
+                <li><strong>Flavor:</strong> Dark fruit, subtle herbs, gentle oak influence</li>
+                <li><strong>Tannins:</strong> Soft and approachable</li>
+                <li><strong>Finish:</strong> Clean and refreshing with fruit persistence</li>
+            </ul>
+            
+            <h2>📅 Drinking Window</h2>
+            <p>Best enjoyed within 2-3 years of vintage. Made for immediate enjoyment - no need to cellar.</p>
+            
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Total Wine</strong> - Usually $10-13</li>
+                <li><strong>Whole Foods</strong> - Organic wine section</li>
+                <li><strong>Trader Joe's</strong> - Great value option</li>
+                <li><strong>Online:</strong> Wine.com, Drizly, Vivino</li>
+            </ul>
+            
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Serve at room temperature (65-68°F) or slightly cool</li>
+                <li>No decanting needed - ready to pour immediately</li>
+                <li>Perfect "house red" to have stocked for any occasion</li>
+                <li>The organic certification means no synthetic pesticides or fertilizers</li>
+                <li>Look for the bicycle logo - it's a symbol of their sustainability commitment</li>
+            </ul>
+        </div>
+        
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="guigal-cotes-du-rhone.html" class="related-wine">
+                    <div class="name">Guigal Côtes du Rhône</div>
+                    <div class="price">$15</div>
+                    <div>French everyday red, similar price point</div>
+                </a>
+                <a href="umani-ronchi-montepulciano.html" class="related-wine">
+                    <div class="name">Umani Ronchi Montepulciano</div>
+                    <div class="price">$17</div>
+                    <div>Italian comfort wine</div>
+                </a>
+                <a href="garnacha-campo-de-borja.html" class="related-wine">
+                    <div class="name">Borsao Garnacha Campo de Borja</div>
+                    <div class="price">$16</div>
+                    <div>Spanish old vine Garnacha</div>
+                </a>
+                <a href="chateau-de-villerouge-minerve.html" class="related-wine">
+                    <div class="name">Château de Villerouge Minervois</div>
+                    <div class="price">$14</div>
+                    <div>Southern French herbal blend</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

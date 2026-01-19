@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Goerg Crémant d'Alsace - Sparkling Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🍾 Paul Goerg Crémant d'Alsace</h1>
+        <p class="subtitle">French bubbles at a fraction of Champagne price</p>
+        <span class="price">~$18</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Paul Goerg</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Alsace, France</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Pinot Blanc, Riesling, Pinot Gris blend</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>Non-vintage (AOC)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>12%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork with wire cage</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Elegant, Floral Sparkling</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Brut (Dry)</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Paul Goerg Crémant d'Alsace represents one of France's best-kept sparkling wine secrets. Made using the same traditional méthode champenoise as Champagne, Crémant d'Alsace delivers remarkable quality and elegance at a fraction of the price. The blend of Alsatian grape varieties—aromatic Pinot Blanc, mineral Riesling, and rich Pinot Gris—creates a uniquely expressive sparkling wine with floral aromatics, stone fruit character, and fine, elegant bubbles. It's the smart sommelier's choice for those who want French sophistication without the Champagne price tag.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.3/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Aperitif</strong> - Perfect for starting any meal or celebration</li>
+                <li><strong>Light seafood</strong> - Oysters, mussels, grilled fish, scallops</li>
+                <li><strong>Brunch</strong> - Quiche Lorraine, eggs Benedict, smoked salmon</li>
+                <li><strong>Mild cheeses</strong> - Brie, Camembert, fresh goat cheese</li>
+                <li><strong>Light salads</strong> - Salads with citrus, goat cheese, or seafood</li>
+            </ul>
+
+            <h2>🌍 The Alsace Region</h2>
+            <p>Alsace is a picturesque wine region in northeastern France, nestled between the Vosges Mountains and the Rhine River along the German border. Known primarily for its aromatic white wines, Alsace has developed an impressive reputation for Crémant—traditional method sparkling wines that rival Champagne in quality. The region's unique terroir, influenced by its continental climate and diverse soils, produces wines with pronounced aromatics and excellent acidity, perfect for sparkling wine production.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Pale gold with fine, persistent bubbles</li>
+                <li><strong>Aroma:</strong> Elegant citrus, white peach, delicate white flowers, subtle minerality</li>
+                <li><strong>Palate:</strong> Fresh and refined with peach, pear, and floral notes</li>
+                <li><strong>Finish:</strong> Clean, elegant, and refreshingly dry</li>
+                <li><strong>Mouthfeel:</strong> Light to medium-bodied with fine, lively bubbles</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Within 2-3 years of purchase</li>
+                <li><strong>Serving temperature:</strong> Well chilled (43-46°F)</li>
+                <li><strong>Storage:</strong> Cool, dark place; drink while fresh</li>
+                <li><strong>Peak freshness:</strong> 1-2 years after release for optimal aromatics</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Specialty wine shops</strong> - French wine specialists often carry Crémant</li>
+                <li><strong>Whole Foods Market</strong> - Growing Crémant selection</li>
+                <li><strong>Online:</strong> Wine.com, K&L Wine Merchants, The Wine House</li>
+                <li><strong>French bistros</strong> - Often featured as house sparkling</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Crémant is made using the same method as Champagne—traditional bottle fermentation</li>
+                <li>The Alsatian grape blend gives this wine unique floral aromatics</li>
+                <li>Often half the price of comparable quality Champagne</li>
+                <li>Look for "Crémant d'Alsace AOC" on the label for quality assurance</li>
+                <li>Perfect gateway to exploring French sparkling wines beyond Champagne</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="alfred-gratien-brut-champagne.html" class="related-wine">
+                    <div class="name">Alfred Gratien Brut Champagne</div>
+                    <div class="price">~$35</div>
+                    <div>Upgrade to true Champagne</div>
+                </a>
+                <a href="bisol-prosecco-superiore.html" class="related-wine">
+                    <div class="name">Bisol Prosecco Superiore</div>
+                    <div class="price">~$20</div>
+                    <div>Italian sparkling alternative</div>
+                </a>
+                <a href="segura-viudas-cava.html" class="related-wine">
+                    <div class="name">Segura Viudas Cava Brut Reserva</div>
+                    <div class="price">$15</div>
+                    <div>Spanish traditional method sparkling</div>
+                </a>
+                <a href="ruinart-brut-rose.html" class="related-wine">
+                    <div class="name">Ruinart Brut Rosé</div>
+                    <div class="price">~$40</div>
+                    <div>Luxury rosé Champagne</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

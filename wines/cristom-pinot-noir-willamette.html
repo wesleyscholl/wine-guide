@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristom Pinot Noir Willamette Valley - Oregon Red Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🍷 Cristom Pinot Noir Willamette Valley</h1>
+        <p class="subtitle">Biodynamic Oregon excellence</p>
+        <span class="price">~$38</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Cristom Vineyards</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Willamette Valley, Oregon, USA</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Pinot Noir (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2022 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>13.5%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Light to Medium-Bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Cristom Vineyards is one of Oregon's most acclaimed Pinot Noir producers, practicing biodynamic viticulture across their estate vineyards in the Eola-Amity Hills. Founded in 1992, Cristom has earned a reputation for crafting world-class Pinot Noir that rivals the finest Burgundies. Their wines showcase the purity of fruit and sense of place that has made Willamette Valley one of the world's premier Pinot Noir regions.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span>4.5/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Duck</strong> - Roasted duck breast, duck confit</li>
+                <li><strong>Salmon</strong> - Grilled or roasted with herbs</li>
+                <li><strong>Mushroom dishes</strong> - Risotto, wild mushroom pasta</li>
+                <li><strong>Soft cheeses</strong> - Brie, Camembert, triple cream</li>
+                <li><strong>Pork</strong> - Tenderloin, roasted pork loin</li>
+            </ul>
+
+            <h2>🌍 The Willamette Valley Region</h2>
+            <p>Oregon's Willamette Valley is located between the Coast Range and Cascade Mountains, creating a cool-climate paradise for Pinot Noir. The region's volcanic and marine sedimentary soils, combined with a long, cool growing season, produce wines of remarkable elegance and complexity. The Eola-Amity Hills AVA, where Cristom is located, is known for its cool Pacific winds and volcanic Jory soils, producing wines with bright acidity and distinctive minerality.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Brilliant ruby with garnet edges</li>
+                <li><strong>Aroma:</strong> Elegant red cherry, forest floor, baking spice, subtle floral notes</li>
+                <li><strong>Palate:</strong> Medium-bodied with flavors of raspberry, cherry, and earthy undertones</li>
+                <li><strong>Finish:</strong> Long and graceful with silky texture and lingering spice</li>
+                <li><strong>Mouthfeel:</strong> Refined tannins with vibrant acidity and elegant structure</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Now through 2032</li>
+                <li><strong>Serving temperature:</strong> Slightly cool (58-62°F)</li>
+                <li><strong>Storage:</strong> Cool, dark cellar; can decant briefly or enjoy fresh</li>
+                <li><strong>Peak freshness:</strong> 2025-2030</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Total Wine & More</strong> - Select locations carry Cristom</li>
+                <li><strong>K&L Wine Merchants</strong> - Excellent Oregon selection</li>
+                <li><strong>Online:</strong> Wine.com, direct from winery, Wine Access</li>
+                <li><strong>Fine wine shops</strong> - Look for Oregon specialists</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Serve slightly cool to highlight the elegant aromatics</li>
+                <li>World-class Oregon Pinot at an accessible price point</li>
+                <li>Perfect dinner party wine - universally appealing</li>
+                <li>Biodynamic farming adds depth and terroir expression</li>
+                <li>Decanting optional but can open up the wine nicely</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="chateau-montelena-chardonnay.html" class="related-wine">
+                    <div class="name">Château Montelena Chardonnay</div>
+                    <div class="price">~$30</div>
+                    <div>Napa Valley legend</div>
+                </a>
+                <a href="muga-rioja-reserva.html" class="related-wine">
+                    <div class="name">Muga Rioja Reserva</div>
+                    <div class="price">~$28</div>
+                    <div>Spanish elegance</div>
+                </a>
+                <a href="domaine-de-la-solitude-chateauneuf.html" class="related-wine">
+                    <div class="name">Domaine de la Solitude CDP</div>
+                    <div class="price">~$35</div>
+                    <div>Rhône Valley sophistication</div>
+                </a>
+                <a href="quilceda-creek-cabernet.html" class="related-wine">
+                    <div class="name">Quilceda Creek Cabernet</div>
+                    <div class="price">~$35</div>
+                    <div>Washington State icon</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

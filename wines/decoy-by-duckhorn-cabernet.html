@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoy by Duckhorn Cabernet Sauvignon - Sonoma Red Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>💕 Decoy by Duckhorn Cabernet Sauvignon</h1>
+        <p class="subtitle">Napa quality at an approachable price</p>
+        <span class="price">~$25</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Decoy (Duckhorn Wine Company)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Sonoma County, California, USA</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Cabernet Sauvignon (85%), Merlot, Petit Verdot</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2022 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>14.1%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Rich, Full-Bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Decoy represents Duckhorn Wine Company's accessible tier, bringing Napa Valley quality to everyday wine lovers. The Duckhorn family has been crafting exceptional wines since 1976, and Decoy captures that legacy in a more approachable bottle. This Cabernet Sauvignon blend showcases the rich fruit and elegant structure that has made California wines famous worldwide, making it perfect for romantic dinners where you want impressive quality without the premium price.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span>4.5/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Filet mignon</strong> - Classic steakhouse pairing</li>
+                <li><strong>Grilled ribeye</strong> - Rich and marbled beef</li>
+                <li><strong>Lamb</strong> - Rack of lamb, lamb chops</li>
+                <li><strong>Aged cheese</strong> - Sharp cheddar, aged gouda, manchego</li>
+                <li><strong>Dark chocolate</strong> - Romantic dessert course</li>
+            </ul>
+
+            <h2>🌍 The Sonoma County Region</h2>
+            <p>Sonoma County is Napa's neighbor and rival, offering diverse terroirs from coastal Chardonnay to inland Cabernet. The region's cooler nights and varied elevations produce wines with both power and elegance. Decoy sources fruit from premium Sonoma vineyards, creating wines that express the best of California winemaking without the Napa Valley price premium.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Deep ruby with purple edges</li>
+                <li><strong>Aroma:</strong> Blackberry, cassis, vanilla, hints of oak spice</li>
+                <li><strong>Palate:</strong> Rich and full with ripe dark fruit, mocha, and cedar notes</li>
+                <li><strong>Finish:</strong> Long and smooth with soft, well-integrated tannins</li>
+                <li><strong>Mouthfeel:</strong> Velvety texture with balanced acidity</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Now through 2030</li>
+                <li><strong>Serving temperature:</strong> Room temperature (65-68°F)</li>
+                <li><strong>Storage:</strong> Cool, dark place; decant 30 minutes before serving</li>
+                <li><strong>Peak freshness:</strong> 2025-2028</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Total Wine & More</strong> - Widely available</li>
+                <li><strong>Costco</strong> - Often carries Decoy wines</li>
+                <li><strong>Grocery stores</strong> - Premium wine section</li>
+                <li><strong>Online:</strong> Wine.com, Duckhorn.com direct</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Decant for 20-30 minutes to soften tannins</li>
+                <li>Look for the distinctive duck logo on the label</li>
+                <li>Perfect for impressing without overspending</li>
+                <li>Pairs wonderfully with a home-cooked steak dinner</li>
+                <li>Also try their Merlot for a softer, more approachable option</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="opus-one-cabernet.html" class="related-wine">
+                    <div class="name">Opus One Cabernet</div>
+                    <div class="price">~$38</div>
+                    <div>Legendary Napa blend</div>
+                </a>
+                <a href="louis-jadot-bourgogne-pinot-noir.html" class="related-wine">
+                    <div class="name">Louis Jadot Bourgogne Pinot Noir</div>
+                    <div class="price">~$25</div>
+                    <div>Burgundy elegance</div>
+                </a>
+                <a href="giuseppe-mascarello-barolo.html" class="related-wine">
+                    <div class="name">Giuseppe Mascarello Barolo</div>
+                    <div class="price">~$40</div>
+                    <div>Italian nobility</div>
+                </a>
+                <a href="chateau-greysac-medoc.html" class="related-wine">
+                    <div class="name">Château Greysac Médoc</div>
+                    <div class="price">$18</div>
+                    <div>Bordeaux structure</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

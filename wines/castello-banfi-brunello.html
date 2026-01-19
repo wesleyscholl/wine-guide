@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castello Banfi Brunello di Montalcino - Tuscan Red Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🍷 Castello Banfi Brunello di Montalcino</h1>
+        <p class="subtitle">Iconic Tuscan elegance with minimum 4 years aging</p>
+        <span class="price">~$40</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Castello Banfi</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Montalcino, Tuscany, Italy</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Sangiovese (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2019 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>14%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Full-Bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Castello Banfi is one of Tuscany's most iconic estates, with over 7,000 acres in the heart of Montalcino. Their Brunello di Montalcino represents the pinnacle of Sangiovese expression, aged for a minimum of 4 years including 2 years in oak barrels and additional time in bottle before release. The estate has been instrumental in establishing Montalcino as a world-class wine region and continues to produce wines of exceptional quality and character.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span>4.5/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Bistecca fiorentina</strong> - Classic Florentine T-bone steak</li>
+                <li><strong>Wild boar</strong> - Cinghiale in umido, wild boar ragù</li>
+                <li><strong>Aged pecorino</strong> - Pecorino Toscano stagionato</li>
+                <li><strong>Truffle dishes</strong> - Pasta with truffles, risotto</li>
+                <li><strong>Slow-cooked meats</strong> - Osso buco, beef brasato</li>
+            </ul>
+
+            <h2>🌍 The Montalcino Region</h2>
+            <p>Montalcino is a hilltop town in southern Tuscany, known for producing some of Italy's greatest wines. The region's unique terroir, with its combination of clay, limestone, and galestro soils at elevations up to 2,000 feet, creates ideal conditions for Sangiovese Grosso (locally called Brunello). The strict DOCG regulations require 100% Sangiovese and minimum aging of 4 years for Brunello, resulting in wines of remarkable depth, complexity, and longevity.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Deep ruby with garnet edges from aging</li>
+                <li><strong>Aroma:</strong> Complex cherry, leather, tobacco, dried herbs, hints of tar and roses</li>
+                <li><strong>Palate:</strong> Full-bodied with flavors of cherry, plum, espresso, and earthy undertones</li>
+                <li><strong>Finish:</strong> Long and structured with firm, well-integrated tannins</li>
+                <li><strong>Mouthfeel:</strong> Powerful yet elegant with balancing acidity</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Now through 2040</li>
+                <li><strong>Serving temperature:</strong> Room temperature (64-68°F)</li>
+                <li><strong>Storage:</strong> Cool, dark cellar; decant 2-3 hours before serving</li>
+                <li><strong>Peak freshness:</strong> 2027-2035</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Total Wine & More</strong> - Often carries Castello Banfi wines</li>
+                <li><strong>Italian wine specialists</strong> - Eataly, specialty importers</li>
+                <li><strong>Online:</strong> Wine.com, Wine Access, Italian Wine Merchants</li>
+                <li><strong>Fine wine shops</strong> - Look for Tuscan specialists</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Decant for 2-3 hours to fully appreciate the complexity</li>
+                <li>Exceptional value for Brunello di Montalcino quality</li>
+                <li>Perfect centerpiece wine for Italian dinner parties</li>
+                <li>Ages gracefully for 20+ years in proper conditions</li>
+                <li>Pair with rich, hearty Tuscan cuisine for the best experience</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="domaine-de-la-solitude-chateauneuf.html" class="related-wine">
+                    <div class="name">Domaine de la Solitude CDP</div>
+                    <div class="price">~$35</div>
+                    <div>Rhône Valley sophistication</div>
+                </a>
+                <a href="muga-rioja-reserva.html" class="related-wine">
+                    <div class="name">Muga Rioja Reserva</div>
+                    <div class="price">~$28</div>
+                    <div>Spanish oak-aged elegance</div>
+                </a>
+                <a href="quilceda-creek-cabernet.html" class="related-wine">
+                    <div class="name">Quilceda Creek Cabernet</div>
+                    <div class="price">~$35</div>
+                    <div>Washington State power</div>
+                </a>
+                <a href="chateau-greysac-medoc.html" class="related-wine">
+                    <div class="name">Château Greysac Médoc</div>
+                    <div class="price">$18</div>
+                    <div>Bordeaux elegance</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

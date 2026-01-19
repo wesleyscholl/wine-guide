@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masi Amarone della Valpolicella - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🔥 Masi Amarone della Valpolicella</h1>
+        <p class="subtitle">Italian luxury from dried grapes, the appassimento method</p>
+        <span class="price">~$35</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Masi</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Valpolicella, Veneto, Italy</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Corvina, Rondinella, Molinara (dried grapes)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2019 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>15%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Full-bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Category</h4>
+                    <p>Winter Warmth</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Amarone is one of Italy's most prestigious and unique wines, made using the ancient appassimento method. Grapes are harvested and dried for 3-4 months in special drying lofts, concentrating their sugars and flavors before fermentation. The result is a wine of extraordinary richness, depth, and complexity. Masi, founded in 1772, is one of Amarone's most respected producers, combining traditional techniques with modern expertise.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐½</span>
+                <span>4.5/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Braised meats</strong> - Osso buco, beef cheeks, short ribs</li>
+                <li><strong>Aged cheeses</strong> - Parmigiano-Reggiano, aged Asiago, Gorgonzola</li>
+                <li><strong>Risotto</strong> - Especially mushroom or truffle risotto</li>
+                <li><strong>Dark chocolate</strong> - Rich desserts complement the dried fruit</li>
+                <li><strong>Game meats</strong> - Venison, wild boar, duck</li>
+            </ul>
+
+            <h2>🌍 Valpolicella, Veneto, Italy</h2>
+            <p>Valpolicella, meaning "valley of many cellars," is located in the Veneto region of northeastern Italy, just north of Verona. The region's hillside vineyards, planted on volcanic and limestone soils, have been producing wine for over 2,000 years. The appassimento technique, unique to this area, transforms the local grape varieties into wines of exceptional concentration. Masi's vineyards span some of the most prestigious areas, including the historic Classico zone.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Deep garnet with brick rim</li>
+                <li><strong>Aroma:</strong> Dried cherry, raisin, fig, dark chocolate, tobacco, coffee, dried herbs</li>
+                <li><strong>Palate:</strong> Rich and velvety with layers of dried fruit, chocolate, and spice. The tannins are smooth and integrated, with a hint of residual sweetness balanced by fresh acidity</li>
+                <li><strong>Finish:</strong> Exceptionally long with notes of cherry liqueur and bitter chocolate</li>
+                <li><strong>Acidity:</strong> Bright and fresh, essential to balancing the richness</li>
+            </ul>
+
+            <h2>🕐 Aging Potential & Drinking Window</h2>
+            <ul>
+                <li><strong>Peak drinking:</strong> Now through 2035+</li>
+                <li><strong>Best served:</strong> Slightly below room temp (63-66°F)</li>
+                <li><strong>Decanting:</strong> 1-2 hours recommended</li>
+                <li><strong>Storage:</strong> Cool, dark place; exceptional cellar potential</li>
+            </ul>
+
+            <h2>🛒 Where to Buy & Current Pricing</h2>
+            <ul>
+                <li><strong>Wine.com</strong> - Usually $32-40</li>
+                <li><strong>Total Wine</strong> - $35-45</li>
+                <li><strong>Italian specialty shops</strong> - Often best selection</li>
+                <li><strong>Fine wine retailers</strong> - Check for back vintages</li>
+                <li><strong>Online:</strong> Wine-Searcher for best prices</li>
+            </ul>
+
+            <h2>💡 Pro Tips & Serving Suggestions</h2>
+            <ul>
+                <li>Decant for at least an hour—the wine opens dramatically</li>
+                <li>Entry-level Amarone that drinks like more expensive versions</li>
+                <li>Perfect for special occasions or cold winter evenings</li>
+                <li>The dried fruit character makes it almost dessert-like</li>
+                <li>Look for Masi's "Costasera" as a step up</li>
+            </ul>
+
+            <h2>🏆 Awards & Recognition</h2>
+            <ul>
+                <li>Consistent 90-93 points from Wine Spectator</li>
+                <li>Masi recognized as Amarone innovator and traditionalist</li>
+                <li>Multiple "Best Value Amarone" awards</li>
+                <li>The Boscaini family—7th generation winemakers</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="alvaro-palacios-camins-del-priorat.html" class="related-wine">
+                    <div class="name">Álvaro Palacios Camins del Priorat</div>
+                    <div class="price">~$30</div>
+                    <div>Spanish intensity and complexity</div>
+                </a>
+                <a href="bodegas-borsao-tres-picos-garnacha.html" class="related-wine">
+                    <div class="name">Bodegas Borsao Tres Picos</div>
+                    <div class="price">~$20</div>
+                    <div>Bold Spanish Garnacha</div>
+                </a>
+                <a href="catena-malbec.html" class="related-wine">
+                    <div class="name">Catena Malbec</div>
+                    <div class="price">~$18</div>
+                    <div>New World richness and depth</div>
+                </a>
+                <a href="quinta-do-crasto-douro.html" class="related-wine">
+                    <div class="name">Quinta do Crasto Douro</div>
+                    <div class="price">$18</div>
+                    <div>Portuguese elegance with structure</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

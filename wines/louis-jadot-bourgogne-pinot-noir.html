@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Jadot Bourgogne Pinot Noir - Burgundy Red Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>💕 Louis Jadot Bourgogne Pinot Noir</h1>
+        <p class="subtitle">Elegant Burgundy for romantic evenings</p>
+        <span class="price">~$25</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Louis Jadot</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Burgundy, France</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Pinot Noir (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2022 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>13%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Elegant, Medium-Bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Sweetness</h4>
+                    <p>Dry</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Louis Jadot has been a premier Burgundy négociant since 1859, setting the standard for quality Pinot Noir. This Bourgogne represents the perfect gateway to French Pinot Noir, showcasing the elegance and finesse that has made Burgundy the world's most revered Pinot Noir region. The wine captures the essence of Burgundy terroir with its delicate aromatics and silky texture, making it an ideal choice for intimate dinners and romantic occasions.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span>4.5/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Duck</strong> - Roast duck, duck confit, duck breast</li>
+                <li><strong>Salmon</strong> - Grilled salmon, salmon with herbs</li>
+                <li><strong>Mushroom dishes</strong> - Mushroom risotto, sautéed wild mushrooms</li>
+                <li><strong>Soft cheeses</strong> - Brie, Camembert, triple cream cheeses</li>
+                <li><strong>Romantic dinners</strong> - Perfect for date nights and special occasions</li>
+            </ul>
+
+            <h2>🌍 The Burgundy Region</h2>
+            <p>Burgundy is the spiritual home of Pinot Noir, where the grape has been cultivated for over a thousand years. The region's unique limestone and clay soils, combined with a continental climate, create wines of unparalleled elegance and complexity. Louis Jadot sources grapes from across Burgundy's finest appellations, blending them to create this approachable yet authentic expression of Burgundian terroir.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Brilliant ruby with garnet highlights</li>
+                <li><strong>Aroma:</strong> Red cherry, raspberry, hints of earth and subtle spice</li>
+                <li><strong>Palate:</strong> Elegant and refined with flavors of ripe red fruits, earthy undertones</li>
+                <li><strong>Finish:</strong> Silky and graceful with lingering fruit notes</li>
+                <li><strong>Mouthfeel:</strong> Light to medium body with soft, integrated tannins</li>
+            </ul>
+
+            <h2>🕐 Drinking Window & Storage</h2>
+            <ul>
+                <li><strong>Best consumed:</strong> Now through 2028</li>
+                <li><strong>Serving temperature:</strong> Slightly cool (60-65°F)</li>
+                <li><strong>Storage:</strong> Cool, dark place; can be enjoyed immediately</li>
+                <li><strong>Peak freshness:</strong> 2025-2027</li>
+            </ul>
+
+            <h2>🛒 Where to Buy</h2>
+            <ul>
+                <li><strong>Total Wine & More</strong> - Widely available in Burgundy section</li>
+                <li><strong>Specialty wine shops</strong> - Look for French imports</li>
+                <li><strong>Online:</strong> Wine.com, K&L Wine Merchants</li>
+                <li><strong>Restaurants:</strong> French bistros and fine dining establishments</li>
+            </ul>
+
+            <h2>💡 Pro Tips</h2>
+            <ul>
+                <li>Serve slightly chilled to preserve elegance and aromatics</li>
+                <li>Perfect introduction to Burgundy for Pinot Noir lovers</li>
+                <li>Look for the iconic Bacchus head logo on the label</li>
+                <li>Pairs beautifully with candlelit dinners</li>
+                <li>Decant briefly (15-20 minutes) to open aromatics</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="schramsberg-blanc-de-blancs.html" class="related-wine">
+                    <div class="name">Schramsberg Blanc de Blancs</div>
+                    <div class="price">~$35</div>
+                    <div>California sparkling elegance</div>
+                </a>
+                <a href="giuseppe-mascarello-barolo.html" class="related-wine">
+                    <div class="name">Giuseppe Mascarello Barolo</div>
+                    <div class="price">~$40</div>
+                    <div>Italian Nebbiolo nobility</div>
+                </a>
+                <a href="decoy-by-duckhorn-cabernet.html" class="related-wine">
+                    <div class="name">Decoy by Duckhorn Cabernet</div>
+                    <div class="price">~$25</div>
+                    <div>Sonoma richness</div>
+                </a>
+                <a href="chateau-greysac-medoc.html" class="related-wine">
+                    <div class="name">Château Greysac Médoc</div>
+                    <div class="price">$18</div>
+                    <div>Bordeaux elegance</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

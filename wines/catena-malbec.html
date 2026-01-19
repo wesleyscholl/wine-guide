@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catena Malbec - Wine Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine-burgundy: #722F37;
+            --wine-rose: #B8576C;
+            --wine-blush: #E8C4C4;
+            --wine-cream: #FBF7F4;
+            --wine-gold: #C9A962;
+            --wine-dark: #2D1F21;
+            --wine-success: #5B8C5A;
+            --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--wine-dark);
+            background: var(--wine-cream);
+        }
+
+        .nav {
+            background: var(--wine-burgundy);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .wine-hero {
+            background: linear-gradient(135deg, var(--wine-burgundy) 0%, var(--wine-rose) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .wine-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .wine-hero .price {
+            display: inline-block;
+            background: var(--wine-gold);
+            color: var(--wine-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .wine-details {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .wine-details h2 {
+            color: var(--wine-burgundy);
+            border-bottom: 2px solid var(--wine-blush);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-wines {
+            background: var(--wine-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .related-wines h2 {
+            color: var(--wine-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .related-wine {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--wine-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-wine:hover {
+            border-color: var(--wine-rose);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .related-wine .name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-wine .price {
+            color: var(--wine-rose);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .stars {
+            color: var(--wine-gold);
+        }
+
+        .wine-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            background: var(--wine-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wine-rose);
+        }
+
+        .spec-item h4 {
+            color: var(--wine-burgundy);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .wine-hero h1 {
+                font-size: 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wine-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html">← Back to Wine Guide</a>
+    </nav>
+
+    <section class="wine-hero">
+        <h1>🔥 Catena Malbec</h1>
+        <p class="subtitle">Argentina's pioneer delivers high-altitude excellence</p>
+        <span class="price">~$18</span>
+    </section>
+
+    <div class="container">
+        <div class="wine-details">
+            <div class="wine-specs">
+                <div class="spec-item">
+                    <h4>Winery</h4>
+                    <p>Bodega Catena Zapata</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Region</h4>
+                    <p>Mendoza, Argentina</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Grape Varieties</h4>
+                    <p>Malbec (100%)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Vintage</h4>
+                    <p>2022 (current release)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Alcohol</h4>
+                    <p>13.9%</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Closure</h4>
+                    <p>Cork</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Style</h4>
+                    <p>Full-bodied Red</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Category</h4>
+                    <p>Winter Warmth</p>
+                </div>
+            </div>
+
+            <h2>🍇 About This Wine</h2>
+            <p>Bodega Catena Zapata is the pioneer of high-altitude viticulture in Argentina, and their standard Malbec represents one of the best values in Argentine wine. Dr. Nicolás Catena revolutionized Argentine winemaking by planting vineyards at extreme elevations in the Andes foothills, discovering that altitude produces wines of extraordinary concentration and elegance. This Malbec showcases everything that makes Argentine Malbec world-famous.</p>
+
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐☆</span>
+                <span>4.4/5 from wine enthusiasts</span>
+            </div>
+
+            <h2>🥘 Perfect Pairings</h2>
+            <ul>
+                <li><strong>Grilled beef</strong> - The classic Argentine pairing, asado-style</li>
+                <li><strong>Empanadas</strong> - Beef or lamb filled pastries</li>
+                <li><strong>Chimichurri dishes</strong> - Herb sauce complements the fruit</li>
+                <li><strong>Aged cheese</strong> - Manchego, aged gouda, pecorino</li>
+                <li><strong>Dark chocolate</strong> - 70% cacao pairs beautifully</li>
+            </ul>
+
+            <h2>🌍 Mendoza, Argentina</h2>
+            <p>Mendoza is Argentina's premier wine region, nestled in the shadow of the Andes mountains. The high altitude (vineyards range from 3,000 to 5,000 feet) means intense UV exposure, which creates thick-skinned grapes with deep color and concentrated flavors. The dry desert climate and snowmelt irrigation from the Andes create ideal growing conditions for Malbec, which has found its spiritual home in this dramatic landscape.</p>
+
+            <h2>📋 Detailed Tasting Notes</h2>
+            <ul>
+                <li><strong>Color:</strong> Deep purple with violet rim</li>
+                <li><strong>Aroma:</strong> Dark plum, ripe blackberry, violet, dark chocolate, subtle oak spice</li>
+                <li><strong>Palate:</strong> Rich and velvety with layers of black fruit, chocolate, and a hint of espresso. The tannins are soft and polished, making it immediately approachable</li>
+                <li><strong>Finish:</strong> Long and smooth with lingering fruit and cocoa</li>
+                <li><strong>Acidity:</strong> Fresh and balanced, adding lift to the rich fruit</li>
+            </ul>
+
+            <h2>🕐 Aging Potential & Drinking Window</h2>
+            <ul>
+                <li><strong>Peak drinking:</strong> Now through 2029</li>
+                <li><strong>Best served:</strong> Slightly cool (62-65°F)</li>
+                <li><strong>Decanting:</strong> 30 minutes recommended</li>
+                <li><strong>Storage:</strong> Cool, dark place; lay bottles horizontally</li>
+            </ul>
+
+            <h2>🛒 Where to Buy & Current Pricing</h2>
+            <ul>
+                <li><strong>Wine.com</strong> - Usually $16-20</li>
+                <li><strong>Total Wine</strong> - $17-19</li>
+                <li><strong>Costco</strong> - Often $14-16</li>
+                <li><strong>Local wine shops</strong> - Widely distributed</li>
+                <li><strong>Online:</strong> Drizly, Vivino for local delivery</li>
+            </ul>
+
+            <h2>💡 Pro Tips & Serving Suggestions</h2>
+            <ul>
+                <li>Gateway wine to explore Catena's higher-tier offerings</li>
+                <li>Pair with red meat for the quintessential Argentine experience</li>
+                <li>Decant briefly to open up the aromatics</li>
+                <li>Excellent value—drinks like wines twice the price</li>
+                <li>Look for the distinctive Catena pyramid label</li>
+            </ul>
+
+            <h2>🏆 Awards & Recognition</h2>
+            <ul>
+                <li>Consistent 90+ points from Wine Spectator and Wine Advocate</li>
+                <li>James Suckling regularly scores 91-93 points</li>
+                <li>Catena family recognized as pioneers of Argentine fine wine</li>
+            </ul>
+        </div>
+
+        <div class="related-wines">
+            <h2>🍷 Similar Wines You Might Like</h2>
+            <div class="related-grid">
+                <a href="penfolds-koonunga-hill-shiraz.html" class="related-wine">
+                    <div class="name">Penfolds Koonunga Hill Shiraz</div>
+                    <div class="price">~$15</div>
+                    <div>Australian richness and value</div>
+                </a>
+                <a href="bodegas-borsao-tres-picos-garnacha.html" class="related-wine">
+                    <div class="name">Bodegas Borsao Tres Picos</div>
+                    <div class="price">~$20</div>
+                    <div>Bold Spanish old vine power</div>
+                </a>
+                <a href="alvaro-palacios-camins-del-priorat.html" class="related-wine">
+                    <div class="name">Álvaro Palacios Camins del Priorat</div>
+                    <div class="price">~$30</div>
+                    <div>Spanish mountain elegance</div>
+                </a>
+                <a href="quinta-do-crasto-douro.html" class="related-wine">
+                    <div class="name">Quinta do Crasto Douro</div>
+                    <div class="price">$18</div>
+                    <div>Portuguese depth and spice</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
