@@ -3,6 +3,11 @@ import CategoryCard from '../components/CategoryCard';
 import WineCard from '../components/WineCard';
 import SearchBar from '../components/SearchBar';
 import WineQuiz from '../components/WineQuiz';
+import WineOfTheDay from '../components/WineOfTheDay';
+import AnimatedStats from '../components/AnimatedStats';
+import WinePairingGame from '../components/WinePairingGame';
+import TestimonialsCarousel from '../components/TestimonialsCarousel';
+import RegionExplorer from '../components/RegionExplorer';
 import { FloatingBubbles, FloatingGlasses, WineStain, Sparkles } from '../components/FloatingElements';
 import { Link } from 'react-router-dom';
 
@@ -60,6 +65,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Animated Stats Section */}
+      <AnimatedStats />
+
+      {/* Wine of the Day Section */}
+      <WineOfTheDay />
+
       {/* Categories Section */}
       <section className="categories-section animated-bg">
         <div className="container">
@@ -83,6 +94,22 @@ export default function HomePage() {
           <WineQuiz />
         </div>
       </section>
+
+      {/* Wine Pairing Game Section */}
+      <section className="pairing-game-section">
+        <div className="container">
+          <h2 style={{ textAlign: 'center', marginBottom: '1rem', color: 'var(--color-secondary)' }}>
+            🎮 Test Your Skills
+          </h2>
+          <p style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--color-text-light)' }}>
+            Think you know your pairings? Put your wine knowledge to the test!
+          </p>
+          <WinePairingGame />
+        </div>
+      </section>
+
+      {/* Region Explorer Section */}
+      <RegionExplorer />
 
       {/* Featured Wines Section */}
       <section className="featured-section">
@@ -156,6 +183,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsCarousel />
     </div>
   );
 }
