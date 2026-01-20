@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/wine-guide/', // For GitHub Pages deployment
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
   },
 });
