@@ -4297,3 +4297,943 @@ button {
     gap: var(--spacing-lg);
   }
 }
+
+/* ================================================
+   ENHANCED WINE DETAIL PAGE STYLES
+   ================================================ */
+
+/* Enhanced Wine Detail Article */
+.wine-detail-enhanced {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: var(--spacing-3xl);
+}
+
+/* Hero Section */
+.wine-hero {
+  position: relative;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--spacing-xl);
+  overflow: hidden;
+  background: var(--gradient, linear-gradient(135deg, #722F37 0%, #A04050 100%));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.wine-hero.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-actions {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-sm);
+  z-index: 10;
+}
+
+.hero-bottle-container {
+  position: relative;
+  margin-bottom: var(--spacing-xl);
+}
+
+.bottle-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.bottle-wrapper {
+  position: relative;
+  z-index: 2;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.bottle-shadow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 80px;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%);
+  transform: translateX(-50%);
+  animation: shadowPulse 4s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+  50% { transform: translateX(-50%) scale(0.8); opacity: 0.15; }
+}
+
+.hero-info {
+  position: relative;
+  z-index: 2;
+}
+
+.wine-type-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-md);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-family: var(--font-primary);
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.hero-winery {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: var(--spacing-xs);
+}
+
+.hero-region {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.stat-pill.price {
+  background: rgba(255,215,0,0.2);
+  border-color: rgba(255,215,0,0.4);
+}
+
+.stat-pill.rating {
+  background: rgba(255,255,255,0.2);
+}
+
+.stat-icon {
+  color: #FFD700;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Wine Type specific backgrounds */
+.wine-type-white .wine-hero {
+  background: linear-gradient(135deg, #DAA520 0%, #C9A227 50%, #B8860B 100%);
+}
+
+.wine-type-rosé .wine-hero {
+  background: linear-gradient(135deg, #DB7093 0%, #D4727A 50%, #C76B83 100%);
+}
+
+.wine-type-sparkling .wine-hero {
+  background: linear-gradient(135deg, #FFD700 0%, #DAA520 50%, #B8860B 100%);
+  color: #333;
+}
+
+/* Tab Navigation */
+.wine-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-xl);
+  overflow-x: auto;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  background: rgba(114, 47, 55, 0.1);
+  color: var(--color-primary);
+}
+
+.tab-btn.active {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+/* Tab Content */
+.tab-content {
+  animation: fadeInUp 0.4s ease;
+}
+
+/* Info Sections */
+.info-section {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid rgba(114, 47, 55, 0.1);
+}
+
+.title-icon {
+  font-size: 1.3rem;
+}
+
+.section-hint {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: calc(-1 * var(--spacing-md));
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Facts Grid - Enhanced */
+.facts-grid.animated .fact-card {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.info-section .fact-card {
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-border);
+}
+
+.info-section .fact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.info-section .fact-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.info-section .fact-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.info-section .fact-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Description Card */
+.description-card {
+  background: linear-gradient(135deg, rgba(114, 47, 55, 0.03) 0%, rgba(114, 47, 55, 0.08) 100%);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  border-left: 4px solid var(--color-primary);
+}
+
+.wine-description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+/* Visual Stats Row */
+.visual-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+/* Flavor Profile */
+.flavor-profile {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.flavor-profile h3 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.flavor-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.flavor-bar-container {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.flavor-bar-label {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.flavor-bar-track {
+  height: 10px;
+  background: rgba(114, 47, 55, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.flavor-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 1s ease;
+}
+
+.flavor-bar-fill.wine-type-red { background: linear-gradient(90deg, #722F37, #A04050); }
+.flavor-bar-fill.wine-type-white { background: linear-gradient(90deg, #DAA520, #F5DEB3); }
+.flavor-bar-fill.wine-type-rosé { background: linear-gradient(90deg, #DB7093, #FFB6C1); }
+.flavor-bar-fill.wine-type-sparkling { background: linear-gradient(90deg, #FFD700, #FFF8DC); }
+
+.flavor-bar-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: right;
+}
+
+/* Score Breakdown */
+.score-breakdown {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-breakdown h3 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  width: 100%;
+}
+
+.score-wheel {
+  width: 140px;
+  height: 140px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.score-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.score-arc {
+  transition: stroke-dasharray 1.5s ease;
+}
+
+.score-text-large {
+  font-size: 36px;
+  font-weight: 700;
+  fill: var(--color-primary);
+}
+
+.score-text-small {
+  font-size: 12px;
+  fill: var(--color-text-light);
+}
+
+.score-details {
+  width: 100%;
+}
+
+.score-detail {
+  display: grid;
+  grid-template-columns: 80px 1fr 50px;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+.detail-bar {
+  height: 6px;
+  background: rgba(114, 47, 55, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.detail-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: width 1s ease;
+}
+
+.detail-score {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+/* Tasting Notes Grid */
+.tasting-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.tasting-note-card {
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-border);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tasting-note-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.tasting-note-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.tasting-note-card.expanded {
+  background: linear-gradient(135deg, rgba(114, 47, 55, 0.05) 0%, rgba(114, 47, 55, 0.1) 100%);
+  border-color: var(--color-primary);
+}
+
+.tasting-note-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.tasting-icon {
+  font-size: 1.5rem;
+}
+
+.tasting-label {
+  flex: 1;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.expand-indicator {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(114, 47, 55, 0.1);
+  border-radius: var(--radius-full);
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all var(--transition-normal);
+}
+
+.tasting-note-card.expanded .expand-indicator {
+  background: var(--color-primary);
+  color: white;
+}
+
+.tasting-note-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.tasting-note-card.expanded .tasting-note-content {
+  max-height: 200px;
+  padding-top: var(--spacing-md);
+}
+
+.tasting-note-content p {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Serving Row */
+.serving-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+/* Serving Temperature */
+.serving-temp {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.temp-thermometer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+}
+
+.temp-scale {
+  width: 16px;
+  height: 80px;
+  background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.temp-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.8);
+  transition: height 1.5s ease;
+}
+
+.temp-bulb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #722F37, #A04050);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -8px;
+}
+
+.wine-bg-red { background: linear-gradient(135deg, #722F37, #A04050); }
+.wine-bg-white { background: linear-gradient(135deg, #DAA520, #C9A227); }
+.wine-bg-rosé { background: linear-gradient(135deg, #DB7093, #D4727A); }
+.wine-bg-sparkling { background: linear-gradient(135deg, #FFD700, #DAA520); }
+
+.temp-value {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease 1s;
+}
+
+.temp-value.visible {
+  opacity: 1;
+}
+
+.temp-info h4 {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.temp-range {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.temp-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(114, 47, 55, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+/* Decanting Guide */
+.decanting-guide {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  border-left: 4px solid var(--color-success);
+}
+
+.decanting-guide.needed {
+  border-left-color: var(--color-primary);
+}
+
+.decanting-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background: rgba(39, 174, 96, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.decanting-guide.needed .decanting-icon {
+  background: rgba(114, 47, 55, 0.1);
+}
+
+.decanting-info h4 {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.decanting-time {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.decanting-tip {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.4;
+}
+
+/* Region Card */
+.region-card {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: flex-start;
+}
+
+.region-map-preview {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(114, 47, 55, 0.1) 0%, rgba(114, 47, 55, 0.2) 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.region-text h3 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.region-text p {
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* Tips List */
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.tip-card {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: var(--radius-md);
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.tip-number {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-full);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.tip-card p {
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Store Tags */
+.store-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.store-tag.animated {
+  animation: fadeInScale 0.4s ease forwards;
+  opacity: 0;
+}
+
+/* Pairings Showcase */
+.pairings-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.pairing-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-normal);
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.pairing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.pairing-emoji {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.pairing-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* Philosophy Cards */
+.philosophy-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.philosophy-card {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, rgba(114, 47, 55, 0.03) 0%, rgba(114, 47, 55, 0.08) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(114, 47, 55, 0.1);
+}
+
+.phil-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.philosophy-card h4 {
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.philosophy-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+
+/* Related Wines Scroll */
+.related-wines-scroll {
+  display: flex;
+  gap: var(--spacing-lg);
+  overflow-x: auto;
+  padding: var(--spacing-sm) 0;
+  scroll-snap-type: x mandatory;
+}
+
+.related-wine-wrapper {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* Share Button */
+.share-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius-full);
+  color: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.share-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .wine-hero {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+
+  .hero-actions {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .wine-tabs {
+    padding: var(--spacing-xs);
+  }
+
+  .tab-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.85rem;
+  }
+
+  .visual-stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tasting-notes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .serving-row {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .region-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .info-section {
+    padding: var(--spacing-lg);
+  }
+}
