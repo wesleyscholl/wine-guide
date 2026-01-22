@@ -1,12 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useWines } from '../context/WineContext';
+import { useCellar } from '../contexts/CellarContext';
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [localSearch, setLocalSearch] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { setSearchQuery, favorites } = useWines();
+  const { getCellarStats } = useCellar();
   const navigate = useNavigate();
+
+  const cellarStats = getCellarStats();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -23,10 +28,33 @@ export default function Header() {
           <span className="logo-text">Wine Guide</span>
         </Link>
 
-        <nav className="nav">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/search" className="nav-link">All Wines</Link>
-          <Link to="/favorites" className="nav-link nav-link--favorites">
+        <button 
+          className="mobile-menu-toggle"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </button>
+
+        <nav className={`nav ${isMobileMenuOpen ? 'nav--open' : ''}`}>
+          <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+          <Link to="/search" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>All Wines</Link>
+          <Link to="/boldness-chart" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            📊 Boldness Chart
+          </Link>
+          <Link to="/sommelier" className="nav-link nav-link--special" onClick={() => setIsMobileMenuOpen(false)}>
+            🧑‍🍳 Sommelier
+          </Link>
+          <Link to="/learn" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            🎓 Learn
+          </Link>
+          <Link to="/cellar" className="nav-link nav-link--cellar" onClick={() => setIsMobileMenuOpen(false)}>
+            🏰 My Cellar
+            {cellarStats.favoritesCount > 0 && (
+              <span className="cellar-badge">{cellarStats.favoritesCount}</span>
+            )}
+          </Link>
+          <Link to="/favorites" className="nav-link nav-link--favorites" onClick={() => setIsMobileMenuOpen(false)}>
             ❤️
             {favorites.length > 0 && (
               <span className="favorites-badge">{favorites.length}</span>

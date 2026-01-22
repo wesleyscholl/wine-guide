@@ -1,42 +1,147 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { wines } from '../data/wines';
 
+// Coordinates updated for amCharts world map (viewBox ~0-1010 x ~250-650)
 const regions = [
-  { id: 'france', name: 'France', emoji: '🇫🇷', color: '#722F37', x: 492, y: 135 },
-  { id: 'italy', name: 'Italy', emoji: '🇮🇹', color: '#8B4513', x: 510, y: 150 },
-  { id: 'spain', name: 'Spain', emoji: '🇪🇸', color: '#C41E3A', x: 470, y: 155 },
-  { id: 'california', name: 'California', emoji: '🇺🇸', x: 115, y: 160, color: '#DAA520' },
-  { id: 'oregon', name: 'Oregon', emoji: '🌲', x: 110, y: 135, color: '#228B22' },
-  { id: 'washington', name: 'Washington', emoji: '🍎', x: 115, y: 120, color: '#4169E1' },
-  { id: 'argentina', name: 'Argentina', emoji: '🇦🇷', x: 260, y: 340, color: '#75AADB' },
-  { id: 'chile', name: 'Chile', emoji: '🇨🇱', x: 245, y: 320, color: '#D52B1E' },
-  { id: 'australia', name: 'Australia', emoji: '🇦🇺', x: 780, y: 320, color: '#FFCD00' },
-  { id: 'newzealand', name: 'New Zealand', emoji: '🇳🇿', x: 850, y: 360, color: '#00247D' },
-  { id: 'southafrica', name: 'South Africa', emoji: '🇿🇦', x: 530, y: 340, color: '#007749' },
-  { id: 'germany', name: 'Germany', emoji: '🇩🇪', x: 505, y: 120, color: '#FFCE00' },
-  { id: 'portugal', name: 'Portugal', emoji: '🇵🇹', x: 458, y: 155, color: '#006600' },
-  { id: 'newmexico', name: 'New Mexico', emoji: '🌵', x: 145, y: 175, color: '#C41E3A' }
+  // Western Europe
+  { id: 'france', name: 'France', emoji: '🇫🇷', color: '#722F37', x: 481, y: 322, countryCode: 'FR', description: 'The birthplace of fine wine, renowned for Bordeaux, Burgundy, and Champagne regions producing world-class wines for centuries.' },
+  { id: 'italy', name: 'Italy', emoji: '🇮🇹', color: '#8B4513', x: 513, y: 340, countryCode: 'IT', description: 'Home to over 350 grape varieties, from bold Tuscan reds to crisp Prosecco, with winemaking traditions dating back to ancient Rome.' },
+  { id: 'spain', name: 'Spain', emoji: '🇪🇸', color: '#C41E3A', x: 467, y: 345, countryCode: 'ES', description: 'The world\'s largest vineyard area, famous for Rioja, Tempranillo, and refreshing Albariño from diverse terroirs.' },
+  { id: 'portugal', name: 'Portugal', emoji: '🇵🇹', x: 455, y: 348, countryCode: 'PT', color: '#006600', description: 'Home of Port wine and increasingly exciting dry reds from indigenous grapes like Touriga Nacional.' },
+  { id: 'germany', name: 'Germany', emoji: '🇩🇪', x: 504, y: 310, color: '#FFCE00', countryCode: 'DE', description: 'Master of Riesling in all styles, from bone-dry to lusciously sweet, grown on steep riverside slopes.' },
+  { id: 'austria', name: 'Austria', emoji: '🇦🇹', x: 515, y: 318, color: '#ED2939', countryCode: 'AT', description: 'Elegant Grüner Veltliner and spicy Blaufränkisch from alpine vineyards, blending Germanic and Eastern European influences.' },
+  { id: 'switzerland', name: 'Switzerland', emoji: '🇨🇭', x: 495, y: 322, color: '#FF0000', countryCode: 'CH', description: 'Alpine wines from Chasselas and Pinot Noir, with stunning Lake Geneva and Valais terroirs.' },
+  { id: 'england', name: 'England', emoji: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', x: 475, y: 295, color: '#C8102E', countryCode: 'GB', description: 'World-class sparkling wines from Sussex and Kent challenging Champagne\'s dominance.' },
+  { id: 'luxembourg', name: 'Luxembourg', emoji: '🇱🇺', x: 488, y: 302, color: '#00A1DE', countryCode: 'LU', description: 'Moselle Valley Riesling and Crémant from Europe\'s smallest quality wine regions.' },
+  // Eastern Europe & Caucasus
+  { id: 'hungary', name: 'Hungary', emoji: '🇭🇺', x: 525, y: 322, color: '#477050', countryCode: 'HU', description: 'Home of Tokaji\'s legendary sweet wines and crisp Furmint, with 400+ years of winemaking excellence.' },
+  { id: 'romania', name: 'Romania', emoji: '🇷🇴', x: 537, y: 323, color: '#002B7F', countryCode: 'RO', description: 'Ancient winemaking traditions with indigenous grapes like Fetească Neagră, producing unique and affordable wines.' },
+  { id: 'bulgaria', name: 'Bulgaria', emoji: '🇧🇬', x: 540, y: 338, color: '#00966E', countryCode: 'BG', description: 'Thracian Valley wines with 4,000 years of history, featuring bold Mavrud and international varieties.' },
+  { id: 'croatia', name: 'Croatia', emoji: '🇭🇷', x: 515, y: 332, color: '#0093DD', countryCode: 'HR', description: 'Mediterranean and continental wines from Istria\'s Teran and Refošk, plus Žlahtina whites from coastal vineyards.' },
+  { id: 'slovenia', name: 'Slovenia', emoji: '🇸🇮', x: 510, y: 328, color: '#0052B4', countryCode: 'SI', description: 'Diverse microclimates producing unique Cviček blends and premium wines from Slovenia\'s varied terroirs.' },
+  { id: 'northmacedonia', name: 'North Macedonia', emoji: '🇲🇰', x: 528, y: 345, color: '#D20000', countryCode: 'MK', description: 'Tikveš region produces bold Vranec reds, the Balkans\' signature indigenous grape.' },
+  { id: 'moldova', name: 'Moldova', emoji: '🇲🇩', x: 548, y: 318, color: '#FFD200', countryCode: 'MD', description: 'World\'s highest vineyard density, with historic Purcari wines once served to royalty.' },
+  { id: 'georgia', name: 'Georgia', emoji: '🇬🇪', x: 580, y: 330, color: '#FF0000', countryCode: 'GE', description: 'Cradle of winemaking with 8,000-year-old traditions, producing Saperavi and Rkatsiteli using ancient qvevri methods.' },
+  { id: 'armenia', name: 'Armenia', emoji: '🇦🇲', x: 588, y: 340, color: '#FF7B00', countryCode: 'AM', description: 'Birthplace of wine with the world\'s oldest winery (6,100 years), featuring indigenous Areni Noir.' },
+  // Mediterranean & Middle East
+  { id: 'greece', name: 'Greece', emoji: '🇬🇷', x: 530, y: 350, color: '#0D5EAF', countryCode: 'GR', description: 'Ancient birthplace of wine with volcanic Santorini Assyrtiko and structured Naoussa Xinomavro from millennia-old traditions.' },
+  { id: 'turkey', name: 'Turkey', emoji: '🇹🇷', x: 555, y: 348, color: '#E30A17', countryCode: 'TR', description: 'Ancient Anatolian winemaking with unique indigenous varieties like Öküzgözü and Boğazkere.' },
+  { id: 'cyprus', name: 'Cyprus', emoji: '🇨🇾', x: 558, y: 360, color: '#D57800', countryCode: 'CY', description: 'Diarizos Valley and Commandaria\'s 5,000+ years of winemaking with unique Xynisteri grape.' },
+  { id: 'lebanon', name: 'Lebanon', emoji: '🇱🇧', x: 568, y: 362, color: '#ED1C24', countryCode: 'LB', description: 'Ancient wine region in the Bekaa Valley with 5,000 years of history, producing distinctive blends from Chateau Musar and others.' },
+  { id: 'israel', name: 'Israel', emoji: '🇮🇱', x: 565, y: 368, color: '#0038B8', countryCode: 'IL', description: 'Golan Heights and Galilee produce world-class Cabernet from volcanic terroir.' },
+  { id: 'malta', name: 'Malta', emoji: '🇲🇹', x: 515, y: 355, color: '#C01C28', countryCode: 'MT', description: 'Mediterranean island with 5,000 years of winemaking, producing unique wines from limestone terroir.' },
+  // Americas
+  { id: 'california', name: 'California', emoji: '🇺🇸', x: 138, y: 355, color: '#DAA520', countryCode: 'US', description: 'America\'s premier wine region, known for bold Napa Cabernets, elegant Sonoma Pinots, and innovative winemaking.' },
+  { id: 'oregon', name: 'Oregon', emoji: '🌲', x: 140, y: 338, color: '#228B22', countryCode: 'US', description: 'Cool-climate paradise producing exceptional Pinot Noir in the Willamette Valley, rivaling Burgundy\'s finest.' },
+  { id: 'washington', name: 'Washington', emoji: '🍎', x: 140, y: 322, color: '#4169E1', countryCode: 'US', description: 'The second-largest US wine producer, excelling in Cabernet, Merlot, and Syrah from the Columbia Valley.' },
+  { id: 'newyork', name: 'New York', emoji: '🗽', x: 258, y: 332, color: '#27251F', countryCode: 'US', description: 'Finger Lakes Riesling rivals Germany\'s best, with pioneering Dr. Frank estate leading the way.' },
+  { id: 'virginia', name: 'Virginia', emoji: '🌸', x: 255, y: 348, color: '#1C2D5C', countryCode: 'US', description: 'East Coast wine destination with Viognier as its signature grape and Jefferson\'s winemaking legacy.' },
+  { id: 'newmexico', name: 'New Mexico', emoji: '🌵', x: 172, y: 365, color: '#C41E3A', countryCode: 'US', description: 'America\'s oldest wine region with high-desert vineyards producing distinctive wines since 1629.' },
+  { id: 'michigan', name: 'Michigan', emoji: '🍒', x: 230, y: 332, color: '#003366', countryCode: 'US', description: 'Old Mission Peninsula on the 45th parallel produces exceptional Riesling and cool-climate varietals.' },
+  { id: 'texas', name: 'Texas', emoji: '🤠', x: 198, y: 368, color: '#BF5700', countryCode: 'US', description: 'Texas Hill Country\'s limestone soils and warm climate make it ideal for Tannat, Tempranillo, and bold reds.' },
+  { id: 'arizona', name: 'Arizona', emoji: '🏜️', x: 158, y: 360, color: '#BE3A34', countryCode: 'US', description: 'High-desert vineyards at 4,500+ feet produce elegant Rhône-style wines with intense concentration.' },
+  { id: 'idaho', name: 'Idaho', emoji: '🥔', x: 152, y: 325, color: '#C41230', countryCode: 'US', description: 'Snake River Valley\'s volcanic soils and extreme temperature swings create aromatic, balanced wines.' },
+  { id: 'canada', name: 'Canada', emoji: '🇨🇦', x: 255, y: 320, color: '#FF0000', countryCode: 'CA', description: 'Niagara Peninsula icewine and Okanagan Valley reds define Canada\'s cool-climate excellence.' },
+  { id: 'mexico', name: 'Mexico', emoji: '🇲🇽', x: 180, y: 388, color: '#006341', countryCode: 'MX', description: 'Valle de Guadalupe is Mexico\'s Napa, producing bold reds and attracting global attention.' },
+  { id: 'argentina', name: 'Argentina', emoji: '🇦🇷', x: 290, y: 545, color: '#75AADB', countryCode: 'AR', description: 'High-altitude vineyards in Mendoza produce world-famous Malbec with intense fruit and velvety tannins.' },
+  { id: 'chile', name: 'Chile', emoji: '🇨🇱', x: 278, y: 555, color: '#D52B1E', countryCode: 'CL', description: 'Diverse microclimates from coast to Andes, known for exceptional Carménère and value-driven Cabernets.' },
+{ id: 'uruguay', name: 'Uruguay', emoji: '🇺🇾', x: 318, y: 560, color: '#001489', countryCode: 'UY', description: 'Tannat is Uruguay\'s signature grape, with Bodega Garzón leading sustainable winemaking.' },
+  { id: 'brazil', name: 'Brazil', emoji: '🇧🇷', x: 328, y: 510, color: '#009739', countryCode: 'BR', description: 'Serra Gaúcha sparkling wines from Italian immigrant traditions rival quality Champagne.' },
+  { id: 'bolivia', name: 'Bolivia', emoji: '🇧🇴', x: 300, y: 510, color: '#F9E300', countryCode: 'BO', description: 'Tarija\'s extreme altitude vineyards (6,000+ feet) produce intensely concentrated wines.' },
+  // Oceania
+  { id: 'australia', name: 'Australia', emoji: '🇦🇺', x: 885, y: 570, color: '#FFCD00', countryCode: 'AU', description: 'Bold Barossa Shiraz, elegant Margaret River Cabernets, and crisp Hunter Valley Semillons define this diverse wine nation.' },
+  { id: 'tasmania', name: 'Tasmania', emoji: '🏝️', x: 885, y: 590, color: '#005A9C', countryCode: 'AU', description: 'Cool-climate island producing Australia\'s finest sparkling wines and elegant Pinot Noir.' },
+  { id: 'newzealand', name: 'New Zealand', emoji: '🇳🇿', x: 965, y: 595, color: '#00247D', countryCode: 'NZ', description: 'World-renowned for vibrant Marlborough Sauvignon Blanc and elegant Central Otago Pinot Noir.' },
+  // Asia
+  { id: 'japan', name: 'Japan', emoji: '🇯🇵', x: 862, y: 358, color: '#BC002D', countryCode: 'JP', description: 'Yamanashi\'s Koshu grape produces delicate whites perfect with Japanese cuisine.' },
+  { id: 'china', name: 'China', emoji: '🇨🇳', x: 800, y: 365, color: '#DE2910', countryCode: 'CN', description: 'Ningxia region wins international awards with Bordeaux-style Cabernets from desert terroir.' },
+  { id: 'india', name: 'India', emoji: '🇮🇳', x: 690, y: 395, color: '#FF9933', countryCode: 'IN', description: 'Emerging wine nation with premium vineyards in Nashik Valley producing award-winning Cabernets and Shiraz.' },
+  // Africa
+  { id: 'southafrica', name: 'South Africa', emoji: '🇿🇦', x: 535, y: 560, color: '#007749', countryCode: 'ZA', description: 'Stunning Stellenbosch wines and unique Pinotage grape showcase 350+ years of winemaking heritage.' }
 ];
 
 const RegionExplorer = () => {
   const [selectedRegion, setSelectedRegion] = useState(null);
   const [hoveredRegion, setHoveredRegion] = useState(null);
+  const [worldMapPaths, setWorldMapPaths] = useState('');
+  const svgContainerRef = useRef(null);
+
+  // Load world map SVG content
+  useEffect(() => {
+    fetch(new URL('../assets/world-map.svg', import.meta.url).href)
+      .then(res => res.text())
+      .then(svgContent => {
+        // Extract paths from SVG - get content between <g> and </g>
+        const pathMatch = svgContent.match(/<g>([\s\S]*?)<\/g>/);
+        if (pathMatch) {
+          setWorldMapPaths(pathMatch[1]);
+        }
+      })
+      .catch(err => console.error('Failed to load world map:', err));
+  }, []);
 
   const regionWineCounts = useMemo(() => {
     const counts = {};
     regions.forEach(region => {
-      counts[region.id] = wines.filter(wine => 
-        wine.region.toLowerCase().includes(region.name.toLowerCase()) ||
-        (region.id === 'california' && wine.region.toLowerCase().includes('california')) ||
-        (region.id === 'oregon' && wine.region.toLowerCase().includes('oregon')) ||
-        (region.id === 'washington' && wine.region.toLowerCase().includes('washington')) ||
-        (region.id === 'argentina' && wine.region.toLowerCase().includes('argentina')) ||
-        (region.id === 'australia' && wine.region.toLowerCase().includes('australia')) ||
-        (region.id === 'newzealand' && wine.region.toLowerCase().includes('new zealand')) ||
-        (region.id === 'southafrica' && wine.region.toLowerCase().includes('south africa')) ||
-        (region.id === 'newmexico' && wine.region.toLowerCase().includes('new mexico'))
-      ).length;
+      counts[region.id] = wines.filter(wine => {
+        const regionLower = wine.region.toLowerCase();
+        return (
+          regionLower.includes(region.name.toLowerCase()) ||
+          // USA regions
+          (region.id === 'california' && regionLower.includes('california')) ||
+          (region.id === 'oregon' && regionLower.includes('oregon')) ||
+          (region.id === 'washington' && regionLower.includes('washington')) ||
+          (region.id === 'newyork' && (regionLower.includes('new york') || regionLower.includes('finger lakes'))) ||
+          (region.id === 'virginia' && regionLower.includes('virginia')) ||
+          (region.id === 'newmexico' && regionLower.includes('new mexico')) ||
+          (region.id === 'michigan' && regionLower.includes('michigan')) ||
+          (region.id === 'texas' && (regionLower.includes('texas') || regionLower.includes('hill country'))) ||
+          (region.id === 'arizona' && regionLower.includes('arizona')) ||
+          (region.id === 'idaho' && (regionLower.includes('idaho') || regionLower.includes('snake river'))) ||
+          // South America
+          (region.id === 'argentina' && regionLower.includes('argentina')) ||
+          (region.id === 'chile' && regionLower.includes('chile')) ||
+          (region.id === 'uruguay' && regionLower.includes('uruguay')) ||
+          (region.id === 'brazil' && regionLower.includes('brazil')) ||
+          (region.id === 'bolivia' && regionLower.includes('bolivia')) ||
+          // Oceania
+          (region.id === 'australia' && regionLower.includes('australia') && !regionLower.includes('tasmania')) ||
+          (region.id === 'tasmania' && regionLower.includes('tasmania')) ||
+          (region.id === 'newzealand' && regionLower.includes('new zealand')) ||
+          // Africa
+          (region.id === 'southafrica' && regionLower.includes('south africa')) ||
+          // Eastern Europe & Caucasus
+          (region.id === 'greece' && regionLower.includes('greece')) ||
+          (region.id === 'austria' && regionLower.includes('austria')) ||
+          (region.id === 'hungary' && regionLower.includes('hungary')) ||
+          (region.id === 'georgia' && regionLower.includes('georgia')) ||
+          (region.id === 'croatia' && regionLower.includes('croatia')) ||
+          (region.id === 'slovenia' && regionLower.includes('slovenia')) ||
+          (region.id === 'romania' && regionLower.includes('romania')) ||
+          (region.id === 'bulgaria' && regionLower.includes('bulgaria')) ||
+          (region.id === 'moldova' && regionLower.includes('moldova')) ||
+          (region.id === 'armenia' && regionLower.includes('armenia')) ||
+          (region.id === 'northmacedonia' && (regionLower.includes('macedonia') || regionLower.includes('tikve'))) ||
+          // Mediterranean & Middle East
+          (region.id === 'turkey' && regionLower.includes('turkey')) ||
+          (region.id === 'cyprus' && regionLower.includes('cyprus')) ||
+          (region.id === 'lebanon' && regionLower.includes('lebanon')) ||
+          (region.id === 'israel' && regionLower.includes('israel')) ||
+          (region.id === 'malta' && regionLower.includes('malta')) ||
+          // Western Europe
+          (region.id === 'switzerland' && regionLower.includes('switzerland')) ||
+          (region.id === 'england' && (regionLower.includes('england') || regionLower.includes('sussex') || regionLower.includes('kent'))) ||
+          (region.id === 'luxembourg' && regionLower.includes('luxembourg')) ||
+          // Americas
+          (region.id === 'canada' && regionLower.includes('canada')) ||
+          (region.id === 'mexico' && regionLower.includes('mexico')) ||
+          // Asia
+          (region.id === 'japan' && regionLower.includes('japan')) ||
+          (region.id === 'china' && regionLower.includes('china')) ||
+          (region.id === 'india' && regionLower.includes('india'))
+        );
+      }).length;
     });
     return counts;
   }, []);
@@ -64,7 +169,7 @@ const RegionExplorer = () => {
         <div className="region-content">
           <div className="world-map-container">
             <svg 
-              viewBox="0 0 900 450" 
+              viewBox="0 250 1010 400" 
               className="world-map"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -88,148 +193,45 @@ const RegionExplorer = () => {
                 <filter id="landShadow">
                   <feDropShadow dx="2" dy="2" stdDeviation="3" floodOpacity="0.3"/>
                 </filter>
+                <style type="text/css">{`
+                  .land { 
+                    fill: url(#landGradient); 
+                    stroke: #1a3a52; 
+                    stroke-width: 0.5; 
+                    stroke-opacity: 0.5;
+                    transition: fill 0.3s ease;
+                  }
+                  .land:hover { 
+                    fill: #4a7c5e; 
+                  }
+                `}</style>
               </defs>
               
               {/* Ocean background */}
-              <rect width="900" height="450" fill="url(#oceanGradient)" />
+              <rect x="0" y="250" width="1010" height="400" fill="url(#oceanGradient)" />
               
               {/* Grid lines for style */}
               {[...Array(9)].map((_, i) => (
-                <line key={`h${i}`} x1="0" y1={i * 50} x2="900" y2={i * 50} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                <line key={`h${i}`} x1="0" y1={250 + i * 50} x2="1010" y2={250 + i * 50} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
               ))}
-              {[...Array(18)].map((_, i) => (
-                <line key={`v${i}`} x1={i * 50} y1="0" x2={i * 50} y2="450" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+              {[...Array(21)].map((_, i) => (
+                <line key={`v${i}`} x1={i * 50} y1="250" x2={i * 50} y2="650" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
               ))}
 
-              {/* North America */}
-              <path 
-                d="M50,50 L120,35 L180,30 L220,45 L240,60 L220,80 L200,90 L185,95 L175,110 
-                   L165,130 L150,145 L130,160 L120,180 L100,200 L85,210 L75,230 L90,250 
-                   L110,260 L130,270 L160,265 L180,250 L200,235 L210,220 L220,200 L235,190 
-                   L245,200 L235,220 L220,240 L200,260 L180,280 L160,290 L140,300 L120,310 
-                   L100,300 L80,280 L65,260 L55,240 L50,220 L40,200 L35,180 L30,160 L25,140 
-                   L30,120 L35,100 L40,80 L45,60 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-              
-              {/* Central America & Mexico */}
-              <path 
-                d="M130,270 L145,275 L160,280 L175,290 L180,305 L175,315 L160,320 L150,310 
-                   L140,305 L130,295 L125,285 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
+              {/* Embedded world map countries */}
+              <g 
+                ref={svgContainerRef}
+                dangerouslySetInnerHTML={{ __html: worldMapPaths }}
               />
 
-              {/* South America */}
-              <path 
-                d="M200,300 L230,290 L260,285 L290,295 L310,310 L315,340 L305,370 L290,395 
-                   L270,415 L250,425 L235,420 L225,400 L230,375 L240,350 L245,320 L230,310 
-                   L210,305 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-
-              {/* Europe */}
-              <path 
-                d="M430,85 L460,75 L490,70 L520,75 L550,85 L565,100 L560,120 L545,135 
-                   L530,150 L510,160 L490,165 L470,170 L455,165 L445,155 L435,140 L440,120 
-                   L445,100 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-              
-              {/* UK & Ireland */}
-              <path 
-                d="M455,90 L465,85 L475,90 L480,100 L475,110 L465,115 L455,110 L450,100 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-              
-              {/* Scandinavia */}
-              <path 
-                d="M490,45 L510,40 L530,50 L545,65 L550,80 L540,90 L525,85 L510,75 L500,60 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-
-              {/* Africa */}
-              <path 
-                d="M440,175 L480,170 L520,180 L560,195 L590,220 L600,260 L595,300 L580,340 
-                   L555,370 L520,385 L485,380 L455,360 L435,330 L425,290 L420,250 L425,210 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-
-              {/* Asia (simplified) */}
-              <path 
-                d="M560,70 L620,55 L680,50 L740,60 L790,80 L820,110 L830,150 L820,190 
-                   L800,220 L770,240 L730,250 L690,245 L650,235 L620,215 L595,190 L575,160 
-                   L560,130 L555,100 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-              
-              {/* India */}
-              <path 
-                d="M640,200 L670,195 L695,210 L700,240 L690,270 L665,290 L640,280 L630,255 
-                   L635,225 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-              
-              {/* Southeast Asia */}
-              <path 
-                d="M720,240 L750,235 L780,250 L790,280 L780,310 L755,320 L730,310 L720,280 
-                   L715,255 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-
-              {/* Australia */}
-              <path 
-                d="M720,290 L770,280 L820,290 L850,315 L855,350 L840,380 L805,395 L760,390 
-                   L725,370 L710,340 L715,310 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-              
-              {/* New Zealand */}
-              <path 
-                d="M855,355 L870,350 L880,365 L875,385 L860,395 L845,385 L850,365 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-
-              {/* Japan */}
-              <path 
-                d="M810,130 L825,125 L835,140 L830,160 L815,170 L800,165 L805,145 Z"
-                fill="url(#landGradient)"
-                filter="url(#landShadow)"
-                opacity="0.9"
-              />
-
-              {/* Region markers */}
-              {regions.map(region => {
-                const isActive = activeRegion?.id === region.id;
+              {/* Region markers - render inactive first, then active on top */}
+              {regions.filter(region => activeRegion?.id !== region.id).map(region => {
                 const count = regionWineCounts[region.id];
                 
                 return (
                   <g 
                     key={region.id}
-                    className={`region-marker ${isActive ? 'active' : ''}`}
+                    className="region-marker"
                     onClick={() => setSelectedRegion(region)}
                     onMouseEnter={() => setHoveredRegion(region)}
                     onMouseLeave={() => setHoveredRegion(null)}
@@ -240,7 +242,7 @@ const RegionExplorer = () => {
                       <circle
                         cx={region.x}
                         cy={region.y}
-                        r={isActive ? 20 : 12}
+                        r={10}
                         fill={region.color}
                         opacity={0.3}
                         className="pulse-ring"
@@ -251,7 +253,7 @@ const RegionExplorer = () => {
                     <circle
                       cx={region.x}
                       cy={region.y}
-                      r={isActive ? 14 : 8}
+                      r={7}
                       fill={region.color}
                       opacity={0.5}
                     />
@@ -260,28 +262,75 @@ const RegionExplorer = () => {
                     <circle
                       cx={region.x}
                       cy={region.y}
-                      r={isActive ? 10 : 6}
+                      r={5}
                       fill={count > 0 ? region.color : '#666'}
                       stroke="#fff"
                       strokeWidth="2"
-                      filter={isActive ? 'url(#glow)' : 'none'}
+                    />
+                  </g>
+                );
+              })}
+              
+              {/* Active marker rendered last to appear on top */}
+              {activeRegion && (() => {
+                const region = activeRegion;
+                const count = regionWineCounts[region.id];
+                return (
+                  <g 
+                    key={region.id}
+                    className="region-marker active"
+                    onClick={() => setSelectedRegion(region)}
+                    onMouseEnter={() => setHoveredRegion(region)}
+                    onMouseLeave={() => setHoveredRegion(null)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {/* Outer pulse ring */}
+                    {count > 0 && (
+                      <circle
+                        cx={region.x}
+                        cy={region.y}
+                        r={16}
+                        fill={region.color}
+                        opacity={0.3}
+                        className="pulse-ring"
+                      />
+                    )}
+                    
+                    {/* Middle ring */}
+                    <circle
+                      cx={region.x}
+                      cy={region.y}
+                      r={12}
+                      fill={region.color}
+                      opacity={0.5}
+                    />
+                    
+                    {/* Main marker */}
+                    <circle
+                      cx={region.x}
+                      cy={region.y}
+                      r={8}
+                      fill={count > 0 ? region.color : '#666'}
+                      stroke="#fff"
+                      strokeWidth="2"
+                      filter="url(#glow)"
                     />
                     
                     {/* Wine count badge */}
-                    {count > 0 && isActive && (
+                    {count > 0 && (
                       <g>
                         <circle
-                          cx={region.x + 15}
-                          cy={region.y - 15}
+                          cx={region.x + 22}
+                          cy={region.y}
                           r="12"
                           fill="#fff"
                           stroke={region.color}
                           strokeWidth="2"
                         />
                         <text
-                          x={region.x + 15}
-                          y={region.y - 11}
-                          fontSize="10"
+                          x={region.x + 22}
+                          y={region.y + 4}
+                          fontSize="12"
                           textAnchor="middle"
                           fill={region.color}
                           fontWeight="bold"
@@ -291,23 +340,50 @@ const RegionExplorer = () => {
                       </g>
                     )}
                     
-                    {/* Region label on hover */}
-                    {isActive && (
+                    {/* Region tooltip - positioned above the dot */}
+                    <g className="region-tooltip-group">
+                      {/* Tooltip box */}
+                      <rect
+                        x={region.x - Math.max(region.name.length * 5, 35)}
+                        y={region.y - 50}
+                        width={Math.max(region.name.length * 10, 70)}
+                        height="28"
+                        rx="4"
+                        fill="rgba(255, 255, 255, 0.95)"
+                        stroke={region.color}
+                        strokeWidth="1.5"
+                      />
+                      {/* Pointer triangle */}
+                      <polygon
+                        points={`${region.x - 6},${region.y - 22} ${region.x + 6},${region.y - 22} ${region.x},${region.y - 12}`}
+                        fill="rgba(255, 255, 255, 0.95)"
+                        stroke={region.color}
+                        strokeWidth="1.5"
+                        strokeLinejoin="round"
+                      />
+                      {/* Cover the stroke where box meets pointer */}
+                      <rect
+                        x={region.x - 5}
+                        y={region.y - 24}
+                        width="10"
+                        height="4"
+                        fill="rgba(255, 255, 255, 0.95)"
+                      />
+                      {/* Tooltip text */}
                       <text
                         x={region.x}
-                        y={region.y + 28}
-                        fontSize="11"
+                        y={region.y - 31}
+                        fontSize="14"
                         textAnchor="middle"
-                        fill="#fff"
-                        fontWeight="600"
-                        className="region-label-text"
+                        fill="#1a1a1a"
+                        fontWeight="700"
                       >
                         {region.name}
                       </text>
-                    )}
+                    </g>
                   </g>
                 );
-              })}
+              })()}
             </svg>
 
             {/* Region labels */}
@@ -340,6 +416,10 @@ const RegionExplorer = () => {
                     {regionWineCounts[activeRegion.id]} wines
                   </span>
                 </div>
+
+                {activeRegion.description && (
+                  <p className="panel-description">{activeRegion.description}</p>
+                )}
 
                 <div className="panel-wines">
                   {regionWines.length > 0 ? (
