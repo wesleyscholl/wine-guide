@@ -238,6 +238,22 @@ const ShareButtons = ({ wine }) => {
   );
 };
 
+// Compare button
+const CompareButton = ({ wine }) => {
+  const { addToCompare, isInCompare } = useWines();
+  const inCompare = isInCompare(wine.slug);
+  
+  return (
+    <button 
+      className={`compare-btn ${inCompare ? 'in-compare' : ''}`}
+      onClick={() => !inCompare && addToCompare(wine.slug)}
+      title={inCompare ? 'Already in compare' : 'Add to compare'}
+    >
+      {inCompare ? '✓ Comparing' : '⚖️ Compare'}
+    </button>
+  );
+};
+
 export default function WineDetail({ wine }) {
   const { getRelatedWines } = useWines();
   const relatedWines = getRelatedWines(wine);
@@ -269,6 +285,7 @@ export default function WineDetail({ wine }) {
         <div className="hero-actions">
           <FavoriteButton wineSlug={wine.slug} size="large" />
           <ShareButtons wine={wine} />
+          <CompareButton wine={wine} />
         </div>
         
         <div className="hero-bottle-container">

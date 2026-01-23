@@ -1,10 +1,12 @@
 import { createContext, useContext, useState, useMemo, useEffect, useCallback } from 'react';
 import { wines, categories, foodPairings } from '../data/wines';
+import { normalizeText } from '../lib/utils';
 
 const WineContext = createContext();
 
 // Local storage key for favorites
 const FAVORITES_KEY = 'wine-guide-favorites';
+const COMPARE_KEY = 'wine-guide-compare';
 
 export function WineProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,6 +23,26 @@ export function WineProvider({ children }) {
       return [];
     }
   });
+
+  // Compare state - wines to compare
+  const [compareWines, setCompareWines] = useState(() => {
+    try {
+      const stored = localStorage.getItem(COMPARE_KEY);
+      return stored ? JSON.parse(stored) : [null, null];
+    } catch {
+      return [null, null];
+    }
+  });
+  const [compareOpen, setCompareOpen] = useState(false);
+
+  // Persist compare wines to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(COMPARE_KEY, JSON.stringify(compareWines));
+    } catch (e) {
+      console.warn('Could not save compare wines to localStorage');
+    }
+  }, [compareWines]);
 
   // Persist favorites to localStorage
   useEffect(() => {
@@ -56,13 +78,13 @@ export function WineProvider({ children }) {
     return wines.filter(wine => {
       // Search query filter
       if (searchQuery) {
-        const query = searchQuery.toLowerCase();
+        const normalizedQuery = normalizeText(searchQuery);
         const matchesSearch = 
-          wine.name.toLowerCase().includes(query) ||
-          wine.region.toLowerCase().includes(query) ||
-          wine.grape.toLowerCase().includes(query) ||
-          wine.winery.toLowerCase().includes(query) ||
-          wine.description.toLowerCase().includes(query);
+          normalizeText(wine.name).includes(normalizedQuery) ||
+          normalizeText(wine.region).includes(normalizedQuery) ||
+          normalizeText(wine.grape).includes(normalizedQuery) ||
+          normalizeText(wine.winery).includes(normalizedQuery) ||
+          normalizeText(wine.description).includes(normalizedQuery);
         if (!matchesSearch) return false;
       }
 
@@ -112,6 +134,42 @@ export function WineProvider({ children }) {
     return foodPairings[food.toLowerCase()] || null;
   };
 
+  // Add wine to compare
+  const addToCompare = useCallback((wineSlug) => {
+    const wine = wines.find(w => w.slug === wineSlug);
+    if (!wine) return;
+    
+    setCompareWines(prev => {
+      // If already in compare, don't add
+      if (prev.some(w => w?.slug === wineSlug)) return prev;
+      // Add to first empty slot
+      if (!prev[0]) return [wine, prev[1]];
+      if (!prev[1]) return [prev[0], wine];
+      // Replace second slot if both full
+      return [prev[0], wine];
+    });
+    setCompareOpen(true);
+  }, []);
+
+  // Remove wine from compare
+  const removeFromCompare = useCallback((slot) => {
+    setCompareWines(prev => {
+      const newCompare = [...prev];
+      newCompare[slot] = null;
+      return newCompare;
+    });
+  }, []);
+
+  // Check if wine is in compare
+  const isInCompare = useCallback((wineSlug) => {
+    return compareWines.some(w => w?.slug === wineSlug);
+  }, [compareWines]);
+
+  // Clear compare
+  const clearCompare = useCallback(() => {
+    setCompareWines([null, null]);
+  }, []);
+
   const value = {
     wines,
     categories,
@@ -132,7 +190,15 @@ export function WineProvider({ children }) {
     favorites,
     toggleFavorite,
     isFavorite,
-    getFavoriteWines
+    getFavoriteWines,
+    compareWines,
+    setCompareWines,
+    compareOpen,
+    setCompareOpen,
+    addToCompare,
+    removeFromCompare,
+    isInCompare,
+    clearCompare
   };
 
   return (

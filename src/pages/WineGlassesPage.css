@@ -1,0 +1,483 @@
+.wine-glasses-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wine-glasses-page .page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.wine-glasses-page .page-header h1 {
+  font-size: 2.8em;
+  color: #8B4513;
+  margin-bottom: 10px;
+}
+
+.wine-glasses-page .page-header p {
+  font-size: 1.3em;
+  color: #666;
+  font-style: italic;
+}
+
+/* Reality Check Section */
+.reality-check {
+  background: linear-gradient(135deg, #e8f4f8, #d4eef5);
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 50px;
+  border-left: 6px solid #4a9eba;
+}
+
+.reality-check-content {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.reality-icon {
+  font-size: 3em;
+  flex-shrink: 0;
+}
+
+.reality-check h2 {
+  color: #2c6e8a;
+  margin-bottom: 15px;
+  font-size: 1.6em;
+}
+
+.reality-check p {
+  color: #446b7a;
+  line-height: 1.7;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.reality-check strong {
+  color: #2c6e8a;
+}
+
+.reality-note {
+  font-style: italic;
+  opacity: 0.9;
+  font-size: 1em !important;
+}
+
+/* Glasses Showcase */
+.glasses-showcase {
+  margin-bottom: 50px;
+}
+
+.glasses-showcase h2 {
+  text-align: center;
+  color: #8B4513;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.showcase-subtitle {
+  text-align: center;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.glasses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.glass-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+  border: 3px solid transparent;
+  position: relative;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: #8B4513;
+}
+
+.glass-card.selected {
+  border-color: #8B4513;
+  background: linear-gradient(135deg, #fff8f0, #fff);
+}
+
+.glass-card.essential::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #8B4513, #DAA520);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card.essential:hover::after {
+  opacity: 1;
+}
+
+.glass-visual {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.glass-illustration {
+  display: flex;
+  justify-content: center;
+}
+
+.essential-badge {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  background: linear-gradient(135deg, #8B4513, #a0522d);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.glass-card h3 {
+  color: #333;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.glass-aka {
+  color: #888;
+  font-size: 0.85em;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.glass-bowl {
+  color: #8B4513;
+  font-size: 0.8em;
+  font-weight: 500;
+  background: #f5f0eb;
+  padding: 4px 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Glass Details Panel */
+.glass-details {
+  background: linear-gradient(135deg, #faf8f5, #f5f0eb);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  position: relative;
+  border: 2px solid #e8ddd0;
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e8ddd0;
+}
+
+.details-header h2 {
+  color: #8B4513;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+.details-aka {
+  color: #888;
+  font-style: italic;
+}
+
+.details-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.detail-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.detail-section h3 {
+  color: #8B4513;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+}
+
+.detail-section p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.wines-section .wines-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wine-tag {
+  background: linear-gradient(135deg, #8B4513, #a0522d);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85em;
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fff8e7, #fff5dc);
+  border-left: 4px solid #DAA520;
+}
+
+.fun-fact cite {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.8em;
+  color: #888;
+  font-style: italic;
+}
+
+.close-details {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #8B4513;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s ease;
+}
+
+.close-details:hover {
+  background: #6b3410;
+}
+
+/* Practical Buying Guide */
+.practical-guide {
+  margin-bottom: 50px;
+}
+
+.practical-guide h2 {
+  text-align: center;
+  color: #8B4513;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.buying-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.tier {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.tier-header {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.tier-minimal .tier-header { background: linear-gradient(135deg, #98FB98, #90EE90); }
+.tier-practical .tier-header { background: linear-gradient(135deg, #87CEEB, #00BFFF); }
+.tier-enthusiast .tier-header { background: linear-gradient(135deg, #DDA0DD, #BA55D3); }
+
+.tier-icon {
+  font-size: 2em;
+}
+
+.tier-header h3 {
+  color: #333;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.tier-count {
+  background: rgba(255,255,255,0.9);
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.tier-content {
+  padding: 25px;
+}
+
+.tier-content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.tier-recommendation {
+  background: #f9f7f4;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  color: #666;
+  border-left: 3px solid #8B4513;
+}
+
+.tier-recommendation strong {
+  color: #8B4513;
+}
+
+/* Tips Section */
+.tips-section {
+  margin-bottom: 50px;
+}
+
+.tips-section h2 {
+  text-align: center;
+  color: #8B4513;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.tip-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-3px);
+}
+
+.tip-icon {
+  font-size: 2.5em;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.tip-card h4 {
+  color: #8B4513;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.tip-card p {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* Footer */
+.wine-glasses-page .page-footer {
+  background: linear-gradient(135deg, #8B4513, #a0522d);
+  padding: 35px;
+  border-radius: 15px;
+}
+
+.footer-message {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: white;
+}
+
+.footer-icon {
+  font-size: 3em;
+  flex-shrink: 0;
+}
+
+.footer-message h4 {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.footer-message p {
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wine-glasses-page .page-header h1 {
+    font-size: 2em;
+  }
+  
+  .reality-check-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .glasses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .details-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .details-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-message {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .glasses-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .glass-card {
+    padding: 15px 10px;
+  }
+  
+  .glass-details {
+    padding: 25px 15px;
+  }
+  
+  .buying-tiers {
+    grid-template-columns: 1fr;
+  }
+}

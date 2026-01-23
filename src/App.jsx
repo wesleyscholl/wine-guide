@@ -12,6 +12,9 @@ import SommelierPage from './pages/SommelierPage';
 import CellarPage from './pages/CellarPage';
 import LearnPage from './pages/LearnPage';
 import WineBoldnessPage from './pages/WineBoldnessPage';
+import GrapeTypesPage from './pages/GrapeTypesPage';
+import WineGlassesPage from './pages/WineGlassesPage';
+import WineColorPage from './pages/WineColorPage';
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
               <Route path="/cellar" element={<CellarPage />} />
               <Route path="/learn" element={<LearnPage />} />
               <Route path="/boldness-chart" element={<WineBoldnessPage />} />
+              <Route path="/grape-types" element={<GrapeTypesPage />} />
+              <Route path="/wine-glasses" element={<WineGlassesPage />} />
+              <Route path="/wine-colors" element={<WineColorPage />} />
             </Routes>
           </main>
           <Footer />

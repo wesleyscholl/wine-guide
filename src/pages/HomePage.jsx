@@ -8,6 +8,8 @@ import AnimatedStats from '../components/AnimatedStats';
 import WinePairingGame from '../components/WinePairingGame';
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
 import RegionExplorer from '../components/RegionExplorer';
+import SeasonalPicks from '../components/SeasonalPicks';
+import GrapeSpotlight from '../components/GrapeSpotlight';
 import { FloatingBubbles, FloatingGlasses, WineStain, Sparkles } from '../components/FloatingElements';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +32,7 @@ export default function HomePage() {
           </h1>
           <p className="hero-subtitle">
             Your no-nonsense guide to great wines under $40.<br />
-            No ratings, no pretension—just solid picks you'll actually enjoy.
+            Real recommendations, no pretension—wines you'll actually enjoy.
           </p>
           <SearchBar />
           <Link to="/search" className="browse-all-btn">
@@ -95,6 +97,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Seasonal Picks Section */}
+      <SeasonalPicks />
+
       {/* Wine Pairing Game Section */}
       <section className="pairing-game-section">
         <div className="container">
@@ -108,8 +113,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Budget Guide Section - Moved to dedicated page */}
+
       {/* Region Explorer Section */}
       <RegionExplorer />
+
+      {/* Grape Spotlight Section */}
+      <GrapeSpotlight />
+
+      {/* Value Wines Section - Moved to dedicated page */}
 
       {/* Featured Wines Section */}
       <section className="featured-section">

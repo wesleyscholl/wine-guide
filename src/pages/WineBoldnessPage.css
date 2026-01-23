@@ -91,9 +91,34 @@
   min-width: 60px;
 }
 
-.wine-box:hover {
-  transform: scale(1.05);
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+.wine-box:hover,
+.wine-box.highlighted {
+  transform: scale(1.08);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+.wine-box.dimmed {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.wine-box-pointer {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #8B4513;
+  animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(5px); }
 }
 
 .wine-box .wine-name {
@@ -130,12 +155,20 @@
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+  border: 3px solid transparent;
 }
 
-.detail-card:hover {
+.detail-card:hover,
+.detail-card.highlighted {
   transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+  border: 3px solid #8B4513;
+}
+
+.detail-card.highlighted {
+  background: linear-gradient(135deg, #fff8f0, #fff);
 }
 
 .detail-color {
@@ -197,9 +230,429 @@
   line-height: 1.8;
 }
 
+/* Tab Navigation */
+.page-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.tab-btn {
+  padding: 15px 35px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: 2px solid #8B4513;
+  border-radius: 50px;
+  background: white;
+  color: #8B4513;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: #f5e6d3;
+}
+
+.tab-btn.active {
+  background: #8B4513;
+  color: white;
+}
+
+/* Guide card enhancements */
+.guide-examples {
+  margin-top: 15px;
+  padding: 12px;
+  background: #f9f7f4;
+  border-radius: 6px;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.guide-tip {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, #fff8e7, #fff5e0);
+  border-left: 3px solid #daa520;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+/* Factors Section */
+.factors-section {
+  margin-top: 50px;
+  padding: 50px 40px;
+  background: #f9f7f4;
+  border-radius: 10px;
+}
+
+.factors-section h2 {
+  font-size: 2em;
+  color: #8B4513;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.factors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.factor-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.factor-card:hover {
+  transform: translateY(-5px);
+}
+
+.factor-icon {
+  font-size: 2.5em;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.factor-card h4 {
+  color: #8B4513;
+  margin-bottom: 10px;
+  font-size: 1.15em;
+}
+
+.factor-card p {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Sweetness Intro Section */
+.sweetness-intro {
+  margin-bottom: 40px;
+}
+
+.sweetness-intro .intro-card {
+  background: linear-gradient(135deg, #fff8f0, #f5e6d3);
+  padding: 35px;
+  border-radius: 12px;
+  border: 1px solid #e8d4c0;
+}
+
+.sweetness-intro h3 {
+  color: #8B4513;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+.sweetness-intro > .intro-card > p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.rs-scale {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.rs-level {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.rs-label {
+  display: block;
+  font-weight: 600;
+  color: #8B4513;
+  margin-bottom: 5px;
+}
+
+.rs-value {
+  font-size: 0.85em;
+  color: #888;
+}
+
+.rs-note {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border-left: 4px solid #daa520;
+  margin-top: 20px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Sweetness Chart */
+.sweetness-section {
+  background: linear-gradient(135deg, #faf5f0, #f0e8e0);
+}
+
+.sweetness-spectrum {
+  margin-bottom: 30px;
+}
+
+.sweetness-scale {
+  margin: 20px 0 30px;
+  position: relative;
+}
+
+.scale-gradient {
+  height: 24px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.scale-position-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  z-index: 10;
+  animation: pulse 1s ease infinite;
+}
+
+.scale-position-marker::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: inherit;
+}
+
+.scale-position-marker::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: inherit;
+}
+
+.marker-label {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px;
+  background: rgba(0,0,0,0.85);
+  color: white !important;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.marker-label::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(0,0,0,0.85);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+  50% { box-shadow: 0 2px 20px rgba(0,0,0,0.6), 0 0 0 8px rgba(139,69,19,0.2); }
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85em;
+  color: #666;
+  font-weight: 500;
+}
+
+.sweetness-wines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.sweetness-wine-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--wine-color, #8B4513);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-left: 4px solid var(--wine-color, #8B4513);
+}
+
+.sweetness-wine-card:hover,
+.sweetness-wine-card.highlighted {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border: 3px solid var(--wine-color, #8B4513);
+  background: linear-gradient(135deg, #fffaf5, #fff);
+}
+
+.sweetness-wine-card.dimmed {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.sweetness-wine-card.highlighted .sweetness-indicator {
+  transform: scale(1.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.sweetness-indicator {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.sweetness-level {
+  color: white;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.sweetness-wine-card h4 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+.sweetness-wine-card p {
+  color: #666;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+/* Sweetness Guide */
+.sweetness-guide .guide-card {
+  border-left-color: #daa520;
+}
+
+/* Sweetness Tips */
+.sweetness-tips-section {
+  margin-top: 50px;
+  padding: 40px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.sweetness-tips-section h2 {
+  color: #8B4513;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.sweet-tip {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.tip-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #8B4513, #a0522d);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.tip-content h4 {
+  color: #8B4513;
+  margin-bottom: 8px;
+  font-size: 1.05em;
+}
+
+.tip-content p {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Page Footer */
+.page-footer {
+  margin-top: 50px;
+  padding: 30px;
+  background: linear-gradient(135deg, #8B4513, #a0522d);
+  border-radius: 10px;
+}
+
+.footer-tip {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: white;
+}
+
+.footer-icon {
+  font-size: 2.5em;
+  flex-shrink: 0;
+}
+
+.footer-tip h4 {
+  margin-bottom: 8px;
+  font-size: 1.2em;
+}
+
+.footer-tip p {
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 1.8em;
+  }
+
+  .page-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-btn {
+    width: 100%;
+    max-width: 300px;
   }
 
   .wine-chart {
@@ -216,5 +669,18 @@
 
   .chart-section {
     padding: 25px 15px;
+  }
+
+  .rs-scale {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-tip {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .factors-grid {
+    grid-template-columns: 1fr;
   }
 }

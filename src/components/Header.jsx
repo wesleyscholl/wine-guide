@@ -40,7 +40,13 @@ export default function Header() {
           <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           <Link to="/search" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>All Wines</Link>
           <Link to="/boldness-chart" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-            📊 Boldness Chart
+            📊 Body & Sweetness
+          </Link>
+          <Link to="/grape-types" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            🍇 Grape Types
+          </Link>
+          <Link to="/wine-glasses" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            🥂 Glassware
           </Link>
           <Link to="/sommelier" className="nav-link nav-link--special" onClick={() => setIsMobileMenuOpen(false)}>
             🧑‍🍳 Sommelier

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useWines } from '../context/WineContext';
+import { normalizeText } from '../lib/utils';
 
 export default function SearchBar({ onSearch, showSuggestions = true }) {
   const [query, setQuery] = useState('');
@@ -26,12 +27,12 @@ export default function SearchBar({ onSearch, showSuggestions = true }) {
       return;
     }
 
-    const lowerQuery = query.toLowerCase();
+    const normalizedQuery = normalizeText(query);
     const matches = wines
       .filter(wine => 
-        wine.name.toLowerCase().includes(lowerQuery) ||
-        wine.region.toLowerCase().includes(lowerQuery) ||
-        wine.grape.toLowerCase().includes(lowerQuery)
+        normalizeText(wine.name).includes(normalizedQuery) ||
+        normalizeText(wine.region).includes(normalizedQuery) ||
+        normalizeText(wine.grape).includes(normalizedQuery)
       )
       .slice(0, 6);
 

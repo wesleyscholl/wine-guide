@@ -1,0 +1,366 @@
+.grape-types-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grape-types-page .page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.grape-types-page .page-header h1 {
+  font-size: 2.8em;
+  color: #8B4513;
+  margin-bottom: 10px;
+}
+
+.grape-types-page .page-header p {
+  font-size: 1.3em;
+  color: #666;
+}
+
+/* Filters Section */
+.filters-section {
+  background: linear-gradient(135deg, #f9f7f4, #f0ebe5);
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.search-box {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  font-size: 1.1em;
+  border: 2px solid #e0d5c8;
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: #8B4513;
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #8B4513;
+  margin-right: 5px;
+}
+
+.filter-group button {
+  padding: 10px 20px;
+  border: 2px solid #d4c4b0;
+  background: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filter-group button:hover {
+  background: #f5e6d3;
+  border-color: #8B4513;
+}
+
+.filter-group button.active {
+  background: #8B4513;
+  color: white;
+  border-color: #8B4513;
+}
+
+.filter-group button.red-btn.active {
+  background: #8B0000;
+  border-color: #8B0000;
+}
+
+.filter-group button.white-btn.active {
+  background: #DAA520;
+  border-color: #DAA520;
+}
+
+.filter-group button.dessert-btn.active {
+  background: #C71585;
+  border-color: #C71585;
+}
+
+/* Results Summary */
+.results-summary {
+  text-align: center;
+  padding: 15px;
+  color: #666;
+  font-size: 1.05em;
+}
+
+.results-summary strong {
+  color: #8B4513;
+}
+
+.results-summary em {
+  color: #8B4513;
+}
+
+/* Grapes Grid */
+.grapes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.grape-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--type-color, #8B4513);
+  position: relative;
+  overflow: hidden;
+}
+
+.grape-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: var(--type-color);
+  opacity: 0.05;
+  border-radius: 0 0 0 100%;
+  transition: all 0.3s ease;
+}
+
+.grape-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.grape-card:hover::before {
+  width: 150px;
+  height: 150px;
+  opacity: 0.1;
+}
+
+.grape-card.red {
+  --type-color: #8B0000;
+}
+
+.grape-card.white {
+  --type-color: #DAA520;
+}
+
+.grape-card.dessert {
+  --type-color: #C71585;
+}
+
+.grape-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.grape-header h3 {
+  font-size: 1.4em;
+  color: #333;
+  margin: 0;
+}
+
+.grape-type-badge {
+  background: var(--type-color);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.grape-origin {
+  color: #888;
+  font-size: 0.95em;
+  margin-bottom: 8px;
+}
+
+.grape-body {
+  display: inline-block;
+  background: #f5f0eb;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.grape-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 0.95em;
+}
+
+.grape-characteristics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.char-tag {
+  background: linear-gradient(135deg, #f9f7f4, #f0ebe5);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  color: #8B4513;
+  font-weight: 500;
+  border: 1px solid #e8ddd0;
+}
+
+.grape-food {
+  font-size: 0.9em;
+  color: #666;
+  padding-top: 15px;
+  border-top: 1px solid #f0ebe5;
+}
+
+.grape-food strong {
+  color: #8B4513;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+.no-results-icon {
+  font-size: 4em;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Page Footer */
+.grape-types-page .page-footer {
+  background: linear-gradient(135deg, #8B4513, #a0522d);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+}
+
+.footer-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.footer-note {
+  opacity: 0.9;
+  font-size: 0.95em;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grape-types-page .page-header h1 {
+    font-size: 2em;
+  }
+  
+  .grapes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-group {
+    flex-direction: column;
+  }
+  
+  .filter-group button {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .footer-stats {
+    gap: 30px;
+  }
+  
+  .stat-number {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters-section {
+    padding: 20px 15px;
+  }
+  
+  .grape-card {
+    padding: 20px 15px;
+  }
+  
+  .grape-header h3 {
+    font-size: 1.2em;
+  }
+}
